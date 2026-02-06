@@ -2,14 +2,460 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EGR Homepage</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="egrubellano">
+    <meta property="og:title" content="EGR | Hello" />
+    <meta property="og:description" content="Hello! Welcome to my website." />
+    <meta property="og:image" content="assets/img/thumbnail.jpg" />
+    <link rel="shortcut icon" href="assets/img/favicon.ico">
+
+    <title>EGR | Hello</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+        :root {
+            --bg-dark: #1A1A1A;
+            --bg-light: #FAFAFA;
+            --header-height: 160px;
+            --header-height-mobile: 160px;
+            --page-max-width: 1440px;
+            --foreground-color: #1A1A1A;
+            --foreground-color-hover: #737373;
+        }
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header, main, section, footer {
+            display: flex;
+            flex-direction: column;
+            width: 100vw;
+        }
+
+        a {
+            color: inherit;
+            font: inherit;
+            text-decoration: none;
+        }
+
+        .content {
+            max-width: var(--page-max-width);
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: transparent;
+            left: 0;
+            padding-bottom: 10px;
+            padding-top: 50px;
+            position: fixed;
+            right: 0;
+            top: 0;
+            z-index: 100;
+            height: var(--header-height);
+        }
+
+        header svg.logo {
+            height: 100px;
+            transition: all 0.15s ease-in-out;
+            width: 166.96px;
+        }
+
+        header svg.logo g {
+            transition: all 0.2s ease-in-out;
+        }
+
+        header svg.logo:hover g#shadow {
+            fill-opacity: 0.15;
+            transform: translate(5px, 5px);
+            -moz-transform: translate(5px, 5px);
+            -webkit-transform: translate(5px, 5px);
+            -o-transform: translate(5px, 5px);
+            -ms-transform: translate(5px, 5px);
+        }
+
+        header .content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        header .content nav a {
+            color: var(--foreground-color);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.05rem;
+        }
+
+        header .content nav a:hover {
+            color: var(--foreground-color-hover);
+        }
+
+        header .content nav ul {
+            display: inline-flex;
+            gap: 20px;
+        }
+
+        header .content nav ul li {
+            list-style: none;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        section {
+            padding: 5rem 0;
+        }
+
+        p {
+            color: var(--foreground-color);
+            font-family: 'Poppins', sans-serif;
+        }
+
+        section#home {
+            min-height: 100dvh;
+            align-items: center;
+            background-color: var(--bg-light);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            --parallax-x: 0px;
+            --parallax-y: 0px;
+        }
+
+        section#home::before {
+            /*background: url(assets/img/home.jpg) no-repeat center center/cover;*/
+            background-position: calc(50% + var(--parallax-x)) calc(50% + var(--parallax-y));
+            bottom: 0;
+            content: '';
+            filter: blur(2px);
+            left: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transform: scale(1.05);
+            z-index: 0;
+        }
+
+        section#home .content {
+            position: relative;
+            text-align: center;
+            z-index: 1;
+            max-width: 50rem;
+        }
+
+        section h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            line-height: 1;
+            letter-spacing: -0.025em;
+        }
+
+        section h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 3.75rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            line-height: 1;
+            letter-spacing: -0.025em;
+        }
+
+        section h3 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            line-height: calc(1.75 / 1.25);
+        }
+
+        section#home p {
+            color: #737373;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 200;
+            margin-bottom: 30px;
+        }
+
+        section#about {
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(26,26,26, 0.9) 60%, rgb(26, 26, 26) 100%), url(assets/img/about.jpg) no-repeat right center/cover;
+        }
+
+        section#about h2, section#about h3, section#about p, section#projects h2, section#projects p {
+            color: var(--bg-light);
+        }
+
+        section#about h3 {
+            margin-bottom: 10px;
+        }
+
+        section#about p,
+        section#works p,
+        section#projects p,
+        section#contact p {
+            font-size: 1.25rem;
+            max-width: 48rem;
+            font-weight: 300;
+        }
+
+        section#about .about-grid {
+            display: grid;
+            gap: 2rem;
+            grid-template-columns: repeat(3, minmax(0px, 1fr));
+            margin-top: 3rem;
+        }
+
+        section#about .about-grid-item {
+            padding: 2rem;
+            border: 1px #737373 solid;
+            border-radius: 10px;
+            transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        section#about .about-grid-item:hover {
+            border-color: color-mix(rgb(250, 250, 250) 40%, transparent);
+            background-color: color-mix(rgb(250, 250, 250) 5%, transparent);
+        }
+
+        section#about .about-grid-item p {
+            line-height: 1.625;
+            font-size: 16px;
+            font-weight: 200;
+        }
+
+        section#about .about-grid-item .about-grid-item-icon {
+            background-color: color-mix(rgb(250, 250, 250) 20%, transparent);
+            border-radius: calc(.5rem + 4px);
+            justify-content: center;
+            align-items: center;
+            width: calc(.25rem * 14);
+            height: calc(.25rem * 14);
+            display: flex;
+            margin-bottom: calc(.25rem * 6);
+        }
+
+        section#about .about-grid-item:hover .about-grid-item-icon {
+            background-color: color-mix(rgb(250, 250, 250) 20%, transparent);
+        }
+
+        section#about .about-grid-item:hover {
+        }
+
+        section#works {}
+
+        section#projects {
+            background-color: var(--bg-dark);
+        }
+
+        section#contact {}
+
+        .btn-primary {
+            background-color: #1A1A1A;
+            border: none;
+            border-radius: 1000vw;
+            color: var(--bg-light);
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            padding: 15px 30px;
+            transition: background-color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(26, 26, 26, 0.9);
+            transform: translateY(-2px);
+        }
+
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            border: 2px solid rgba(26, 26, 26, 0.1);
+            border-radius: 1000vw;
+            color: var(--foreground-color);
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1rem;
+            font-weight: 400;
+            padding: 13px 28px;
+            transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out, transform 0.2s ease-in-out;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e5e5e5;
+            transform: translateY(-2px);
+        } 
+
+        .btn-secondary:active {
+            transform: translateY(0);
+        }
+
+        .btn-container {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+
+        /* Mobile: disable parallax, use cover */
+        @media (max-width: 768px) {
+            header {
+                padding-bottom: 10px;
+                padding-top: 40px;
+            }
+
+            header svg.logo {
+                height: 80px;
+                width: 133.57px;
+            }
+
+            section#about .about-grid {
+                grid-template-columns: repeat(1, minmax(0px, 1fr));
+            }
+        }
+    </style>
 </head>
 <body>
-    <header></header>
-    <main>
-        Test Index Page
+    <header>
+        <div class="content">
+            <a href="/">
+                <svg class="logo" width="191" height="114" viewBox="0 0 191 114" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g id="outline" fill="#1A1A1A">
+                        <path d="M95.94 60.4173H95.9513V29.603H95.94H87.3653H87.3513V60.4173H87.3653H95.94Z"/>
+                        <path d="M37.2053 29.603H28.6187V37.9597H37.2053V29.603Z"/>
+                        <path d="M131.577 7.037L124.559 13.979V13.8967V7H72.8163L65.7847 13.9987V13.9323V7.037H14.0697L0 20.985V82.927H58.7483L58.7497 107H110.506L124.595 93.0483V82.945H183.292L183.333 7.037H131.577ZM58.6987 52.0623H28.6187V60.4177H58.6987V76.0317H7.086V23.804L17.0433 13.9323H37.871H58.6987V52.0623ZM117.466 90.253L107.529 100.105H65.8353V84.18H95.9513V76.0833H65.8353L65.8433 23.8043L75.798 13.8957H117.473L117.466 90.253ZM176.205 76.0493H154.712V55.136H176.205V76.0493ZM176.222 44.241H154.719L154.708 29.577H146.119L146.112 76.0493L124.592 76.0303V23.7793L134.544 13.9323H176.241L176.222 44.241Z"/>
+                    </g>
+                    <g id="bg" fill="#fff">
+                        <path d="M176.205 55.136H154.712V76.0493H176.205V55.136Z" fill="white"/>
+                        <path d="M124.592 23.7793V76.0307L146.113 76.0493L146.119 29.577H154.708L154.719 44.241H176.222L176.241 13.9323H134.545L124.592 23.7793Z" fill="white"/>
+                        <path d="M65.8433 23.8043L65.8353 76.0833H95.9513V84.18H65.8353V100.105H107.529L117.466 90.2527L117.473 13.8953H75.798L65.8433 23.8043ZM87.3513 29.603H87.3653H95.94H95.951V60.4173H95.94H87.3653H87.3513V29.603Z" fill="white"/>
+                        <path d="M7.086 23.804V76.0317H58.6987V60.4177H28.6187V52.0623H58.6987V13.9323H17.0433L7.086 23.804ZM28.6187 29.603H37.2053V37.9597H28.6187V29.603Z" fill="white"/>
+                    </g>
+                    <g id="shadow" fill="#000" fill-opacity="0">
+                        <path d="M95.94 60.4173H95.9513V29.603H95.94H87.3653H87.3513V60.4173H87.3653H95.94Z"/>
+                        <path d="M37.2053 29.603H28.6187V37.9597H37.2053V29.603Z"/>
+                        <path d="M131.577 7.037L124.559 13.979V13.8967V7H72.8163L65.7847 13.9987V13.9323V7.037H14.0697L0 20.985V82.927H58.7483L58.7497 107H110.506L124.595 93.0483V82.945H183.292L183.333 7.037H131.577ZM58.6987 52.0623H28.6187V60.4177H58.6987V76.0317H7.086V23.804L17.0433 13.9323H37.871H58.6987V52.0623ZM117.466 90.253L107.529 100.105H65.8353V84.18H95.9513V76.0833H65.8353L65.8433 23.8043L75.798 13.8957H117.473L117.466 90.253ZM176.205 76.0493H154.712V55.136H176.205V76.0493ZM176.222 44.241H154.719L154.708 29.577H146.119L146.112 76.0493L124.592 76.0303V23.7793L134.544 13.9323H176.241L176.222 44.241Z"/>
+                    </g>
+                </svg>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#works">Works</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main role="main">
+        <section id="home">
+            <div class="content">
+                <h1>Web Developer</h1>
+                <p>Crafting beautiful, functional, and user-centric digital experiences</p>
+                <div class="btn-container">
+                    <a href="#projects" class="btn-primary">View My Work</a>
+                    <a href="#contact" class="btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </section>
+        <section id="about">
+            <div class="content">
+                <h2>About Me</h2>
+                <p>I'm a passionate web developer with a keen eye for design and a love for creating seamless digital experiences. With expertise in modern technologies and frameworks, I transform ideas into elegant, functional solutions that users love.</p>
+                <div class="about-grid">
+                    <div class="about-grid-item">
+                        <div class="about-grid-item-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m18 16 4-4-4-4"></path>
+                                <path d="m6 8-4 4 4 4"></path>
+                                <path d="m14.5 4-5 16"></path>
+                            </svg>
+                        </div>
+                        <h3>Clean Code</h3>
+                        <p>Writing maintainable, scalable, and efficient code following best practices</p>
+                    </div>
+                    <div class="about-grid-item">
+                        <div class="about-grid-item-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-palette text-[#fafafa]">
+                                <circle cx="13.5" cy="6.5" r=".5" fill="#FFFFFF"></circle>
+                                <circle cx="17.5" cy="10.5" r=".5" fill="#FFFFFF"></circle>
+                                <circle cx="8.5" cy="7.5" r=".5" fill="#FFFFFF"></circle>
+                                <circle cx="6.5" cy="12.5" r=".5" fill="#FFFFFF"></circle>
+                                <path
+                                    d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z">
+                                </path>
+                            </svg></div>
+                        <h3>Modern Design</h3>
+                        <p>Creating beautiful interfaces with attention to detail and user experience</p>
+                    </div>
+                    <div class="about-grid-item">
+                        <div class="about-grid-item-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none"
+                                stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="lucide lucide-zap text-[#fafafa]">
+                                <path
+                                    d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z">
+                                </path>
+                            </svg>
+                        </div>
+                        <h3>Performance</h3>
+                        <p>Optimizing applications for speed and smooth user interactions</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="works">
+            <div class="content">
+                <h2>Featured Works</h2>
+                <p>A selection of my recent projects showcasing expertise in web development and design.</p>
+            </div>
+        </section>
+        <section id="projects">
+            <div class="content">
+                <h2>Recent Projects</h2>
+                <p>Explore my latest work and personal projects that showcase innovation and creativity</p>
+            </div>
+        </section>
+        <section id="contact">
+            <div class="content">
+                <h2>Get In Touch</h2>
+                <p>Have a project in mind or just want to chat? Feel free to reach out. I'm always open to discussing new opportunities and ideas.</p>
+            </div>
+        </section>
     </main>
-    <footer></footer>
+    <footer>
+        <div class="content">
+        </div>
+    </footer>
+
+    <!-- Index JavaScript -->
+    <script src="assets/js/index.js"></script>
 </body>
 </html>
