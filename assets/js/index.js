@@ -38,24 +38,74 @@
 // 	element.classList.add(onpageLoad);
 // 	document.getElementById("theme").textContent = localStorage.getItem("theme") || "light";
 
+	const root = document.documentElement;
+	const body = document.querySelector("body");
+
 	// Header scroll event listener.
 	const header = document.querySelector("header");
 
 	window.addEventListener("scroll", () => {
 		header.classList.toggle("scrolled", window.scrollY > 0);
 	});
-})();
 
-function themeToggle() {
-	let element = document.body;
-	element.classList.toggle("dark-mode");
+	// Theme toggle setup
+	const btnToggleTheme = document.querySelector('.toggle-theme');
 
-	let theme = localStorage.getItem("theme");
-	if (theme && theme === "dark-mode") {
-		localStorage.setItem("theme", "");
-	} else {
-		localStorage.setItem("theme", "dark-mode");
+	function applyTheme(theme) {
+		if (theme === 'dark') {
+			root.classList.add('dark');
+			localStorage.setItem('theme', 'dark');
+		} else {
+			root.classList.remove('dark');
+			localStorage.setItem('theme', 'light');
+		}
 	}
 
-	document.getElementById("theme").textContent = localStorage.getItem("theme");
+	// Initialize theme from localStorage (default: light)
+	try {
+		const stored = localStorage.getItem('theme') || 'light';
+		applyTheme(stored);
+	} catch (e) {
+		// localStorage may be unavailable; default to light
+		applyTheme('light');
+	}
+
+	if (btnToggleTheme) {
+		btnToggleTheme.addEventListener('click', () => {
+			const next = root.classList.contains('dark') ? 'light' : 'dark';
+			applyTheme(next);
+		});
+	}
+
+	// Menu toggle setup
+	const btnToggleMenu = document.querySelector('.toggle-menu');
+
+	btnToggleMenu.addEventListener('click', () => {
+		const menuStatus = body.classList.contains('menu-opened');
+		if (menuStatus) {
+			body.classList.remove('menu-opened');
+		} else {
+			body.classList.add('menu-opened');
+		}
+	});
+
+	const btnCloseMenu = document.querySelector('.close-menu');
+
+	btnCloseMenu.addEventListener('click', () => {
+		const menuStatus = body.classList.contains('menu-opened');
+		if (menuStatus) {
+			body.classList.remove('menu-opened');
+		}
+	});
+	
+})();
+
+/* legacy API: keep compatibility if something calls themeToggle() */
+function themeToggle() {
+	const root = document.documentElement;
+	const next = root.classList.contains('dark') ? 'light' : 'dark';
+	// trigger same behavior as the click handler
+	const toggleBtn = document.querySelector('.toggle-theme');
+	if (toggleBtn) toggleBtn.click();
+	return next;
 }
