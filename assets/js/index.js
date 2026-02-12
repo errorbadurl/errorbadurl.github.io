@@ -43,6 +43,8 @@
 
 	// Header scroll event listener.
 	const header = document.querySelector("header");
+	
+	header.classList.toggle("scrolled", window.scrollY > 0);
 
 	window.addEventListener("scroll", () => {
 		header.classList.toggle("scrolled", window.scrollY > 0);
