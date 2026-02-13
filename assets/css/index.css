@@ -266,6 +266,9 @@ input, textarea {
 }
 
 button {
+	background-color: transparent;
+	border: none;
+	cursor: pointer;
 	font-size: var(--text-base);
 	font-weight: var(--font-weight-medium);
 	line-height: 1.5;
@@ -457,7 +460,6 @@ header .menu-controls {
 }
 
 header .menu-controls button {
-	cursor: pointer;
 	position: relative;
 	transform: scale(1);
 	transition: all 0.15s ease-in-out;
@@ -893,7 +895,6 @@ aside .nav-menu ul li:hover button {
 .btn-container button {
 	border-radius: 1000vw;
 	padding: 15px 30px;
-	cursor: pointer;
 }
 
 @media (max-width: 480px) {
@@ -1801,6 +1802,107 @@ Contact section
 #contact .contact-form-input:focus,
 #contact .contact-form-textarea:focus {
 	border-color: var(--primary);
+}
+
+/** Footer section */
+footer {
+	border: 1px solid var(--border);
+	padding-block: calc(var(--spacing) * 12);
+	padding-inline: calc(var(--spacing) * 6);
+}
+
+footer .links {
+	display: flex;
+	gap: calc(var(--spacing) * 4);
+	justify-content: center;
+	margin-bottom: calc(var(--spacing) * 8);
+}
+
+footer .heart-icon {
+	color: var(--destructive);
+	display: block;
+	fill: var(--destructive);
+	height: calc(var(--spacing) * 4);
+	width: calc(var(--spacing) * 4);
+}
+
+footer .link-icon {
+	border: 2px solid var(--primary);
+	border-radius: calc(infinity * 1px);
+	justify-content: center;
+	align-items: center;
+	width: calc(var(--spacing) * 14);
+	height: calc(var(--spacing) * 14);
+	display: flex;
+	transform: translateY(0) scale(1);
+	transition: all var(--default-transition-duration) var(--default-transition-timing-function);
+}
+
+footer .link-icon:hover {
+	background-color: var(--primary);
+	color: var(--primary-foreground);
+	transform: translateY(-2px) scale(1.1);
+}
+
+footer .nav {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: calc(var(--spacing) * 8);
+	margin-bottom: calc(var(--spacing) * 8);
+}
+
+footer .nav button {
+	color: var(--muted-foreground);
+	text-transform: capitalize;
+	transition: all var(--default-transition-duration) var(--default-transition-timing-function);
+}
+
+footer .nav button:hover {
+	color: var(--foreground);
+}
+
+footer .footer-br {
+	background-color: var(--border);
+	height: 1px;
+	margin-bottom: calc(var(--spacing) * 8);
+	width: 100%;
+}
+
+footer .copyright {
+    text-align: center;
+}
+
+footer .copyright p {
+	align-items: center;
+	color: var(--muted-foreground);
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	gap: calc(var(--spacing) * 2);
+	justify-content: center;
+	margin-bottom: calc(var(--spacing) * 4);
+}
+
+footer .copyright span {
+	align-items: center;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	gap: calc(var(--spacing) * 1);
+}
+
+footer .btn-top {
+	appearance: button;
+	color: var(--primary);
+	font-size: var(--text-sm);
+	font-weight: var(--font-weight-medium);
+	line-height: var(--text-sm--line-height);
+	text-decoration: none;
+}
+
+footer .btn-top:hover {
+	text-decoration: underline;
 }
 
 /**
