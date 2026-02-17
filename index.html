@@ -13,10 +13,26 @@
 
 	<title>EGR | Hello</title>
 
+	<link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/index.css">
+
+	<script>
+		(function () {
+			const savedTheme = localStorage.getItem("theme");
+			if (
+				savedTheme === "dark" ||
+				(!savedTheme && window.matchMedia("(prefers-color-scheme: dark)").matches)
+			) {
+				document.documentElement.classList.add("dark");
+			} else {
+				document.documentElement.classList.remove("dark");
+			}
+		})();
+	</script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
-	<header>
+	<header data-aos="fade-down" data-aos-delay="200">
 		<div class="container">
 			<div class="logo-container">
 				<svg class="logo" width="128" height="65" viewBox="0 0 128 65" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,17 +138,17 @@
 				</svg>
 			</div>
 			<div class="container">
-				<h3>Web Developer & Creative Coder</h3>
-				<h1>
+				<h3 data-aos="fade-up" data-aos-delay="0">Web Developer & Creative Coder</h3>
+				<h1 data-aos="fade-up" data-aos-delay="200">
 					<span>Crafting Digital</span>
 					<span>Experiences</span>
 				</h1>
-				<p>Turning ideas into elegant, functional, and user-centered web applications.</p>
-				<div class="btn-container">
+				<p data-aos="fade-up" data-aos-delay="400">Turning ideas into elegant, functional, and user-centered web applications.</p>
+				<div class="btn-container" data-aos="fade-up" data-aos-delay="600">
 					<button class="btn-primary">View My Work</button>
 					<button class="btn-secondary">Get In Touch</button>
 				</div>
-				<div class="btn-mouse-container">
+				<div class="btn-mouse-container" data-aos="fade-down" data-aos-delay="800" data-aos-anchor-placement="top-bottom">
 					<div class="btn-mouse">
 						<div class="btn-mouse-scroll"></div>
 					</div>
@@ -147,12 +163,12 @@
 			<div class="floater-circle" style="left: 1.5rem; top: 5rem;"></div>
 			<div class="floater-circle" style="bottom: 3.5rem; height: calc(var(--spacing) * 48); width: calc(var(--spacing) * 48); right: 1.5rem;"></div>
 			<div class="container">
-				<div class="content">
+				<div class="content" data-aos="fade-up">
 					<h2>About Me</h2>
 					<div class="section-br"></div>
 					<p>I'm a passionate web developer dedicated to creating exceptional digital experiences. With a keen eye for design and a love for clean code, I bring ideas to life through modern web technologies and creative problem-solving.</p>
 				</div>
-				<div class="grid grid-4">
+				<div class="grid grid-4" data-aos="fade-up">
 					<div class="grid-item">
 						<div class="grid-item-icon">
 							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-laptop">
@@ -197,10 +213,10 @@
 						<p class="grid-item-desc">Working effectively in teams</p>
 					</div>
 				</div>
-				<div class="more">
+				<div class="more" data-aos="fade-up">
 					<h3>What I Bring to the Table</h3>
-					<div class="grid">
-						<div class="grid-item">
+					<div class="grid grid-row">
+						<div class="grid-row-item" data-aos="fade-right">
 							<div class="grid-item-icon">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-code">
 									<polyline points="16 18 22 12 16 6"></polyline>
@@ -212,7 +228,7 @@
 								<p class="grid-item-desc">Writing maintainable and scalable solutions</p>
 							</div>
 						</div>
-						<div class="grid-item">
+						<div class="grid-row-item" data-aos="fade-left">
 							<div class="grid-item-icon">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-lightbulb">
 									<path d="M15 14c.2-1 .7-1.7 1.5-2.5 1-.9 1.5-2.2 1.5-3.5A6 6 0 0 0 6 8c0 1 .2 2.2 1.5 3.5.7.7 1.3 1.5 1.5 2.5"></path>
@@ -225,10 +241,10 @@
 								<p class="grid-item-desc">Finding creative solutions to complex challenges</p>
 							</div>
 						</div>
-						<div class="grid-item">
+						<div class="grid-row-item" data-aos="fade-right">
 							<div class="grid-item-icon">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-award">
-									<path ="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path>
+									<path d="m15.477 12.89 1.515 8.526a.5.5 0 0 1-.81.47l-3.58-2.687a1 1 0 0 0-1.197 0l-3.586 2.686a.5.5 0 0 1-.81-.469l1.514-8.526"></path>
 									<circle cx="12" cy="8" r="6"></circle>
 								</svg>
 							</div>
@@ -237,7 +253,7 @@
 								<p class="grid-item-desc">Committed to delivering excellence</p>
 							</div>
 						</div>
-						<div class="grid-item">
+						<div class="grid-row-item" data-aos="fade-left">
 							<div class="grid-item-icon">
 								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-coffee">
 									<path d="M10 2v2"></path>
@@ -273,91 +289,12 @@
 		<section id="works">
 			<div class="floater-glow" style="left: 1.5rem; top: 5rem;"></div>
 			<div class="container">
-				<div class="content">
+				<div class="content" data-aos="fade-up">
 					<h2>Featured Works</h2>
 					<div class="section-br"></div>
 					<p>A selection of my recent projects showcasing expertise in web development and design.</p>
 				</div>
-				<div class="grid grid-3">
-					<div class="grid-item">
-						<div class="grid-item-img">
-							<img src="https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzcwMzQxNzY1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Mobile Fitness App">
-							<div class="grid-item-overlay">
-								<span>View Details</span>
-							</div>
-						</div>
-						<div class="grid-item-text">
-							<div class="grid-item-text-sub">Mobile App</div>
-							<h3 class="grid-item-text-title">Mobile Fitness App</h3>
-							<p class="grid-item-text-desc">Track workouts and nutrition</p>
-						</div>
-					</div>
-					<div class="grid-item">
-						<div class="grid-item-img">
-							<img src="https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzcwMzQxNzY1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Mobile Fitness App">
-							<div class="grid-item-overlay">
-								<span>View Details</span>
-							</div>
-						</div>
-						<div class="grid-item-text">
-							<div class="grid-item-text-sub">Mobile App</div>
-							<h3 class="grid-item-text-title">Mobile Fitness App</h3>
-							<p class="grid-item-text-desc">Track workouts and nutrition</p>
-						</div>
-					</div>
-					<div class="grid-item">
-						<div class="grid-item-img">
-							<img src="https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzcwMzQxNzY1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Mobile Fitness App">
-							<div class="grid-item-overlay">
-								<span>View Details</span>
-							</div>
-						</div>
-						<div class="grid-item-text">
-							<div class="grid-item-text-sub">Mobile App</div>
-							<h3 class="grid-item-text-title">Mobile Fitness App</h3>
-							<p class="grid-item-text-desc">Track workouts and nutrition</p>
-						</div>
-					</div>
-					<div class="grid-item">
-						<div class="grid-item-img">
-							<img src="https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzcwMzQxNzY1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Mobile Fitness App">
-							<div class="grid-item-overlay">
-								<span>View Details</span>
-							</div>
-						</div>
-						<div class="grid-item-text">
-							<div class="grid-item-text-sub">Mobile App</div>
-							<h3 class="grid-item-text-title">Mobile Fitness App</h3>
-							<p class="grid-item-text-desc">Track workouts and nutrition</p>
-						</div>
-					</div>
-					<div class="grid-item">
-						<div class="grid-item-img">
-							<img src="https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzcwMzQxNzY1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Mobile Fitness App">
-							<div class="grid-item-overlay">
-								<span>View Details</span>
-							</div>
-						</div>
-						<div class="grid-item-text">
-							<div class="grid-item-text-sub">Mobile App</div>
-							<h3 class="grid-item-text-title">Mobile Fitness App</h3>
-							<p class="grid-item-text-desc">Track workouts and nutrition</p>
-						</div>
-					</div>
-					<div class="grid-item">
-						<div class="grid-item-img">
-							<img src="https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzcwMzQxNzY1fDA&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Mobile Fitness App">
-							<div class="grid-item-overlay">
-								<span>View Details</span>
-							</div>
-						</div>
-						<div class="grid-item-text">
-							<div class="grid-item-text-sub">Mobile App</div>
-							<h3 class="grid-item-text-title">Mobile Fitness App</h3>
-							<p class="grid-item-text-desc">Track workouts and nutrition</p>
-						</div>
-					</div>
-				</div>
+				<div class="grid grid-3" data-modal="yes"></div>
 			</div>
 		</section>
 		<section id="projects">
@@ -365,89 +302,25 @@
 			<div class="floater-glow" style="right: 2rem; top: 10rem;"></div>
 			<div class="floater-glow floater-glow-2" style="left: 2rem; bottom: 5rem;"></div>
 			<div class="container">
-				<div class="content">
+				<div class="content" data-aos="fade-up">
 					<h2>Recent Projects</h2>
 					<div class="section-br"></div>
 					<p>Explore my latest work and personal projects that showcase innovation and creativity.</p>
 				</div>
-				<div class="grid grid-3">
-					<div class="grid-item">
-						<img class="grid-item-img" src="https://images.unsplash.com/photo-1649000808933-1f4aac7cad9a?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjB3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc3MDQwMTc2Nnww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Creative Portfolio">
-						<div class="grid-item-overlay"></div>
-						<div class="grid-item-text">
-							<div>
-								<div class="grid-item-sub">Portfolio</div>
-								<h3 class="grid-item-title">Creative Portfolio</h3>
-								<p class="grid-item-desc">Minimalist portfolio for artists</p>
-								<div class="grid-item-pills">
-									<span>React</span>
-									<span>Framer Motion</span>
-									<span>Sanity CMS</span>
-								</div>
-							</div>
-						</div>
-						<div class="grid-item-arrow">
-							<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-							</svg>
-						</div>
-					</div>
-					<div class="grid-item">
-						<img class="grid-item-img" src="https://images.unsplash.com/photo-1683721003111-070bcc053d8b?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxzb2NpYWwlMjBtZWRpYSUyMHBsYXRmb3JtfGVufDF8fHx8MTc3MDQwMTc2N3ww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Social Hub">
-						<div class="grid-item-overlay"></div>
-						<div class="grid-item-text">
-							<div>
-								<div class="grid-item-sub">Social Platform</div>
-								<h3 class="grid-item-title">Social Hub</h3>
-								<p class="grid-item-desc">Connect and share with friends</p>
-								<div class="grid-item-pills">
-									<span>Vue.js</span>
-									<span>Socket.io</span>
-									<span>MongoDB</span>
-								</div>
-							</div>
-						</div>
-						<div class="grid-item-arrow">
-							<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-							</svg>
-						</div>
-					</div>
-					<div class="grid-item">
-						<img class="grid-item-img" src="https://images.unsplash.com/photo-1760008486593-a85315610136?crop=entropy&amp;cs=tinysrgb&amp;fit=max&amp;fm=jpg&amp;ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjcmVhdGl2ZSUyMGxhbmRpbmclMjBwYWdlfGVufDF8fHx8MTc3MDM3OTQ3MHww&amp;ixlib=rb-4.1.0&amp;q=80&amp;w=1080" alt="Landing Page Studio">
-						<div class="grid-item-overlay"></div>
-						<div class="grid-item-text">
-							<div>
-								<div class="grid-item-sub">Marketing</div>
-								<h3 class="grid-item-title">Landing Page Studio</h3>
-								<p class="grid-item-desc">High-converting landing pages</p>
-								<div class="grid-item-pills">
-									<span>Next.js</span>
-									<span>TailwindCSS</span>
-									<span>MDX</span>
-								</div>
-							</div>
-						</div>
-						<div class="grid-item-arrow">
-							<svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-							</svg>
-						</div>
-					</div>
-				</div>
+				<div class="grid grid-3" data-modal="yes"></div>
 			</div>
 		</section>
 		<section id="contact">
 			<div class="floater-circle" style="opacity: 0.2; right: 1.5rem; top: 5rem;"></div>
 			<div class="floater-circle" style="opacity: 0.2; bottom: 3.5rem; height: calc(var(--spacing) * 48); width: calc(var(--spacing) * 48); left: 1.5rem;"></div>
 			<div class="container">
-				<div class="content">
+				<div class="content" data-aos="fade-up">
 					<h2>Get In Touch</h2>
 					<div class="section-br"></div>
 					<p>Have a project in mind or just want to chat? Feel free to reach out! Send me a message and let's create something amazing together.</p>
 				</div>
 				<div class="grid">
-					<div>
+					<div data-aos="fade-right">
 						<h3>Let's Talk</h3>
 						<div class="list">
 							<div class="list-item">
@@ -498,25 +371,24 @@
 							</div>
 						</div>
 					</div>
-					<div>
-						<form class="contact-form">
+					<div data-aos="fade-left">
+						<form id="contact-form" class="contact-form">
 							<div>
 								<label for="name" class="contact-form-label">Your Name</label>
-								<input id="name" type="text" required="" class="contact-form-input" placeholder="John Doe" value="">
+								<input id="name" name="from_name" type="text" required="" class="contact-form-input" placeholder="John Doe" value="">
 							</div>
 							<div>
 								<label for="email" class="contact-form-label">Your Email</label>
-								<input id="email" type="email" required="" class="contact-form-input" placeholder="john@example.com" value="">
+								<input id="email" name="reply_to" type="email" required="" class="contact-form-input" placeholder="john@example.com" value="">
 							</div>
 							<div>
 								<label for="message" class="contact-form-label">Your Message</label>
-								<textarea id="message" required="" rows="6" class="contact-form-textarea" placeholder="Tell me about your project ideas..."></textarea>
+								<textarea id="message" name="message" required="" rows="6" class="contact-form-textarea" placeholder="Tell me about your project ideas..."></textarea>
 							</div>
-							<button type="submit" class="btn-contact" tabindex="0">
-								<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send w-5 h-5">
-									<path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
-									<path d="m21.854 2.147-10.94 10.939"></path>
-								</svg>Send
+      						<div class="g-recaptcha" data-sitekey="6Lduz24sAAAAAL28Bfl84LAcjJ4L9N5bdNrCjMMe"></div>
+							<button type="submit" class="btn-contact" data-action='submit' tabindex="0">
+								<div class="btn-contact-default"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send w-5 h-5"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>Send</div>
+								<div class="btn-contact-sending"><div class="loading-icon"></div>Sending...</div>
 							</button>
 						</form>
 					</div>
@@ -525,27 +397,20 @@
 		</section>
 	</main>
 	<footer>
-		<div class="container">
+		<div class="container" data-aos="fade-down" data-aos-duration="500">
 			<div class="links">
-				<a href="https://github.com" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="GitHub" tabindex="0">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github w-5 h-5">
-						<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-						<path d="M9 18c-4.51 2-5-2-7-2"></path>
-					</svg>
+				<a class="link-icon" href="https://github.com/errorbadurl" target="_blank" rel="noopener noreferrer" aria-label="GitHub" tabindex="0" data-aos="zoom-in" data-aos-duration="300" data-aos-easing="linear">
+					<span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg></span>
 				</a>
-				<a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="LinkedIn" tabindex="0">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin w-5 h-5">
-						<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-						<rect width="4" height="12" x="2" y="9"></rect>
-						<circle cx="4" cy="4" r="2"></circle>
-					</svg>
+				<a class="link-icon" href="https://linkedin.com" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" tabindex="0" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="100" data-aos-easing="linear">
+					<span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg></span>
 				</a>
-				<a href="mailto:egrubellano@gmail.com" target="_blank" rel="noopener noreferrer" class="link-icon" aria-label="Email" tabindex="0">
-					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail w-5 h-5">
-						<rect width="20" height="16" x="2" y="4" rx="2"></rect>
-						<path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
-					</svg>
+				<a class="link-icon" href="mailto:egrubellano@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Email" tabindex="0" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="200" data-aos-easing="linear">
+					<span><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"></rect><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></svg></span>
 				</a>
+				<button class="link-resume" aria-label="Download Resume" data-aos="zoom-in" data-aos-duration="300" data-aos-delay="300" data-aos-easing="linear">
+					<span><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" x2="12" y1="15" y2="3"></line></svg>Resume</span>
+				</button>
 			</div>
 			<nav class="nav">
 				<button class="text-muted-foreground hover:text-foreground transition-colors capitalize">home</button>
@@ -565,7 +430,21 @@
 		</div>
 	</footer>
 
-	<!-- Index JavaScript -->
+	<!-- Modal Structure -->
+	<div id="modal-overlay" class="modal-overlay" tabindex="-1" aria-hidden="true">
+		<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+			<button class="modal-close">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x w-5 h-5">
+					<path d="M18 6 6 18"></path>
+					<path d="m6 6 12 12"></path>
+				</svg>
+			</button>
+			<div class="modal-content"></div>
+		</div>
+	</div>
+
+	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script src="assets/js/index.js"></script>
 </body>
 </html>
