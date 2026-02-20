@@ -344,7 +344,7 @@ section {
 	padding-inline: calc(var(--spacing) * 6);
 	overflow: hidden;
 	position: relative;
-	scroll-margin-top: 105px;
+	scroll-margin-top: var(--header-height);
 }
 
 .container {
@@ -396,6 +396,11 @@ section {
 }
 
 @media (width < 40rem) {
+	section {
+		padding-block: calc(var(--spacing) * 18);
+		scroll-margin-top: var(--header-height-mobile);
+	}
+
 	.grid {
 		grid-template-columns: repeat(1, minmax(0, 1fr));
 	}
@@ -1061,7 +1066,8 @@ aside .nav-menu .nav-bottom {
 
 @media (width < 40rem) {
 	.btn-container {
-		flex-direction: column;
+		/* flex-direction: column; */
+		width: calc(100% + calc(var(--spacing) * 18));
 	}
 	
 	.btn-container button,
@@ -1215,7 +1221,6 @@ section .section-br {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding-top: calc(var(--spacing) * 24);
 }
 
 /* Home Background Grid */
@@ -1307,7 +1312,7 @@ section .section-br {
 	#home .container p {
 		font-size: var(--text-lg);
 		line-height: var(--text-lg--line-height);
-		margin-bottom: calc(var(--spacing) * 12);
+		margin-bottom: calc(var(--spacing) * 8);
 	}
 }
 
@@ -1973,6 +1978,7 @@ section .section-br {
 
 #contact #recaptcha_element_container {
 	position: fixed;
+	z-index: 9;
 }
 
 @media (width < 40rem) {
