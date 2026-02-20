@@ -548,6 +548,7 @@ function renderRecaptcha(theme) {
 	reCaptchaId = grecaptcha.render(element, {
 		sitekey: '6Ley0XEsAAAAAGBEohy3nRKMJgdUI3ylbmuUpvzQ',
     	size: 'invisible',
+		badge: 'bottomleft',
 		theme: theme,
     	callback: onSubmitContactForm,
 	});

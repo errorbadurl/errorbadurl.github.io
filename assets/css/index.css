@@ -849,12 +849,12 @@ aside .nav-menu ul.nav {
 	color: var(--foreground);
 	display: flex;
 	flex-direction: column;
-	gap: 25px;
+	gap: calc(var(--spacing) * 6);
 	justify-content: center;
 	list-style-type: none;
 	margin: 0;
 	min-height: 100%;
-	padding: 35px 50px;
+	padding: calc(var(--spacing) * 16);
 }
 
 aside .nav-menu ul.nav > li {
@@ -948,24 +948,23 @@ aside .nav-menu ul.nav-icons .link-resume {
 }
 
 /* Mobile Navigation */
-@media (max-width: 768px) {
+@media (width < 40rem) {
 	aside .nav-menu {
 		width: 100vw;
 	}
-	
+
 	aside .nav-menu ul.nav {
-		padding: 35px 20px;
+		gap: calc(var(--spacing) * 4);
+		padding: calc(var(--spacing) * 6);
+	}
+
+	aside .nav-menu ul.nav > li .nav-btn {
+		font-size: var(--text-4xl);
+		line-height: var(--tw-leading, var(--text-4xl--line-height));	
 	}
 
 	.menu-opened header::before {
 		background: linear-gradient(to left, transparent 0%, var(--muted) 25%, var(--muted) 75%, transparent 100%);
-	}
-}
-
-@media (width < 40rem) {
-	aside .nav-menu ul.nav > li .nav-btn {
-		font-size: var(--text-4xl);
-		line-height: var(--tw-leading, var(--text-4xl--line-height));	
 	}
 }
 
@@ -1947,6 +1946,7 @@ footer {
 	overflow: hidden;
 	padding-block: calc(var(--spacing) * 12);
 	padding-inline: calc(var(--spacing) * 6);
+	z-index: 0;
 }
 
 /* Footer Links */
@@ -2134,7 +2134,7 @@ footer .btn-top:hover {
 	background-color: color-mix(in oklab, var(--primary) 5%, transparent);
 }
 
-@media (max-width: 768px) {
+@media (width < 40rem) {
 	.floater-object svg {
 		height: calc(var(--spacing) * 16);
 		width: calc(var(--spacing) * 16);
@@ -2648,4 +2648,11 @@ body:has(.modal-overlay.active) {
 .toast.show {
 	opacity: 1;
 	transform: translateY(0);
+}
+
+/* ===========================
+   RECAPTCHA STYLES
+   =========================== */
+.grecaptcha-badge {
+	z-index: 99999;
 }
