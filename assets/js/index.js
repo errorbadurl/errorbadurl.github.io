@@ -103,70 +103,7 @@ const works = [
 	},
 ];
 
-const projects = [
-	{
-		"id": 1,
-		"title": "Creative Portfolio",
-		"description": "Minimalist portfolio for artists",
-		"longDescription": "A sleek and minimalist portfolio website designed for creative professionals. Features smooth page transitions, an image gallery with lightbox functionality, and a blog section for sharing insights and updates.",
-		"image": "https://images.unsplash.com/photo-1649000808933-1f4aac7cad9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjB3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc3MDQwMTc2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["React", "Framer Motion", "Sanity CMS", "Vercel"],
-		"category": "Portfolio",
-		"liveUrl": "#",
-		"githubUrl": "#"
-	},
-	{
-		"id": 2,
-		"title": "Social Hub",
-		"description": "Connect and share with friends",
-		"longDescription": "A social media platform that enables users to connect, share content, and engage with their community. Includes features like real-time messaging, post reactions, and user profiles with customizable themes.",
-		"image": "https://images.unsplash.com/photo-1683721003111-070bcc053d8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxzb2NpYWwlMjBtZWRpYSUyMHBsYXRmb3JtfGVufDF8fHx8MTc3MDQwMTc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["Vue.js", "Socket.io", "MongoDB", "Express"],
-		"category": "Social Platform",
-		"liveUrl": "#"
-	},
-	{
-		"id": 3,
-		"title": "Landing Page Studio",
-		"description": "High-converting landing pages",
-		"longDescription": "A collection of modern, high-converting landing page templates designed for startups and businesses. Each template is fully responsive, optimized for performance, and includes sections for hero, features, testimonials, and CTAs.",
-		"image": "https://images.unsplash.com/photo-1760008486593-a85315610136?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxjcmVhdGl2ZSUyMGxhbmRpbmclMjBwYWdlfGVufDF8fHx8MTc3MDM3OTQ3MHww&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["Next.js", "TailwindCSS", "MDX", "Cloudflare"],
-		"category": "Marketing",
-		"githubUrl": "#"
-	},
-	{
-		"id": 4,
-		"title": "Creative Portfolio",
-		"description": "Minimalist portfolio for artists",
-		"longDescription": "A sleek and minimalist portfolio website designed for creative professionals. Features smooth page transitions, an image gallery with lightbox functionality, and a blog section for sharing insights and updates.",
-		"image": "https://images.unsplash.com/photo-1649000808933-1f4aac7cad9a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwb3J0Zm9saW8lMjB3ZWJzaXRlJTIwZGVzaWdufGVufDF8fHx8MTc3MDQwMTc2Nnww&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["React", "Framer Motion", "Sanity CMS", "Vercel"],
-		"category": "Portfolio",
-		"liveUrl": "#",
-		"githubUrl": "#"
-	},
-	{
-		"id": 5,
-		"title": "Social Hub",
-		"description": "Connect and share with friends",
-		"longDescription": "A social media platform that enables users to connect, share content, and engage with their community. Includes features like real-time messaging, post reactions, and user profiles with customizable themes.",
-		"image": "https://images.unsplash.com/photo-1683721003111-070bcc053d8b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxzb2NpYWwlMjBtZWRpYSUyMHBsYXRmb3JtfGVufDF8fHx8MTc3MDQwMTc2N3ww&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["Vue.js", "Socket.io", "MongoDB", "Express"],
-		"category": "Social Platform",
-		"liveUrl": "#"
-	},
-	{
-		"id": 6,
-		"title": "Landing Page Studio",
-		"description": "High-converting landing pages",
-		"longDescription": "A collection of modern, high-converting landing page templates designed for startups and businesses. Each template is fully responsive, optimized for performance, and includes sections for hero, features, testimonials, and CTAs.",
-		"image": "https://images.unsplash.com/photo-1760008486593-a85315610136?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxjcmVhdGl2ZSUyMGxhbmRpbmclMjBwYWdlfGVufDF8fHx8MTc3MDM3OTQ3MHww&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["Next.js", "TailwindCSS", "MDX", "Cloudflare"],
-		"category": "Marketing",
-		"githubUrl": "#"
-	}
-];
+const projects = [];
 
 // On page load set the theme and render grids.
 document.addEventListener('DOMContentLoaded', async function() {
@@ -351,6 +288,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 				</div>`;
 			}).join('');
 			container.insertAdjacentHTML('beforeend', html);
+		} else if (container && projects.length <= 0) {
+			container.insertAdjacentHTML('beforeend', `<h1 class="upcoming-items">!!!UNDER CONSTRUCTION!!!<br/>Entries are coming soon.</h1>`);
 		}
 	}
 
@@ -380,10 +319,18 @@ document.addEventListener('DOMContentLoaded', async function() {
 		});
 	}
 
-	// Event: Modal close button click - closes the currently open modal
+	// Event: Modal close button click - closes the currently open modal on desktop
 	const eventCloseModal = document.querySelector('#modal-overlay .modal-close');
 	if (eventCloseModal) {
 		eventCloseModal.addEventListener('click', function(e) {
+			destroyModal();
+		});
+	}
+
+	// Event: Modal close button click - closes the currently open modal on mobile
+	const eventCloseMobileModal = document.querySelector('#modal-overlay .modal-mobile-close');
+	if (eventCloseMobileModal) {
+		eventCloseMobileModal.addEventListener('click', function(e) {
 			destroyModal();
 		});
 	}
