@@ -897,7 +897,7 @@ aside .nav-menu .nav-bottom span  {
 aside .nav-menu .nav-btn {
 	background: transparent;
 	border: none;
-	color: inherit;
+	color: var(--primary);
 	cursor: pointer;
 	font-family: Space Grotesk, sans-serif;
 	font-size: var(--text-5xl);
@@ -965,6 +965,7 @@ aside .nav-menu ul.nav-icons .link-resume {
 
 /* Navigation Bottom */
 aside .nav-menu .nav-bottom {
+	animation: shake10 10.5s infinite;
 	position: absolute;
 	bottom: calc(var(--spacing) * 16);
 	left: calc(var(--spacing) * 16);
@@ -1970,6 +1971,10 @@ section .section-br {
 	border-color: var(--primary);
 }
 
+#contact #recaptcha_element_container {
+	position: fixed;
+}
+
 @media (width < 40rem) {
 	 #contact h3 {
 		 font-size: var(--text-2xl);
@@ -2671,35 +2676,20 @@ body:has(.modal-overlay.active) {
 	}
 }
 
-@keyframes shake2 {
-	/* 0% to ~85.7% (3 seconds of a 3.5s loop) nothing happens */
-	0%, 85.7% { 
-		transform: translate3d(0, 0, 0); 
+@keyframes shake10 {
+	/* The shake effect occurs within the first ~4.76% of the animation cycle (0.5s / 10.5s) */
+	0%, 4.76% {
+		transform: translateX(0);
 	}
-	/* The actual shake animation keyframes happen in the last ~14.3% */
-	85.8%, 89% {
-		transform: translate3d(-2px, 0, 0);
+	1.19%, 3.57% {
+		transform: translateX(-5px);
 	}
-	87.4%, 90.6% {
-		transform: translate3d(2px, 0, 0);
+	2.38% {
+		transform: translateX(5px);
 	}
-	89%, 92.2% {
-		transform: translate3d(-4px, 0, 0);
-	}
-	90.6%, 93.8% {
-		transform: translate3d(4px, 0, 0);
-	}
-	92.2%, 95.4% {
-		transform: translate3d(-4px, 0, 0);
-	}
-	93.8%, 97% {
-		transform: translate3d(4px, 0, 0);
-	}
-	95.4%, 98.6% {
-		transform: translate3d(-2px, 0, 0);
-	}
-	97%, 100% {
-		transform: translate3d(2px, 0, 0);
+	/* From 4.76% to 100%, the element is static, creating the 10-second delay */
+	4.77%, 100% {
+		transform: translateX(0);
 	}
 }
 

@@ -246,6 +246,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 				</div>`;
 			}).join('');
 			container.insertAdjacentHTML('beforeend', html);
+		} else if (container && works.length <= 0) {
+			container.insertAdjacentHTML('beforeend', `<h1 class="upcoming-items" data-aos="fade-up">!!!UNDER CONSTRUCTION!!!<br/>Entries are coming soon.</h1>`);
 		}
 	}
 
@@ -289,7 +291,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 			}).join('');
 			container.insertAdjacentHTML('beforeend', html);
 		} else if (container && projects.length <= 0) {
-			container.insertAdjacentHTML('beforeend', `<h1 class="upcoming-items">!!!UNDER CONSTRUCTION!!!<br/>Entries are coming soon.</h1>`);
+			container.insertAdjacentHTML('beforeend', `<h1 class="upcoming-items" data-aos="fade-up">!!!UNDER CONSTRUCTION!!!<br/>Entries are coming soon.</h1>`);
 		}
 	}
 
