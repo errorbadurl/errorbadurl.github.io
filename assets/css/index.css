@@ -505,6 +505,10 @@ header svg.logo:hover {
 	header {
 		height: var(--header-height-mobile);
 	}
+
+	header svg.logo {
+		margin: 15px 0 0;
+	}
 }
 
 /* ===========================
@@ -555,10 +559,10 @@ header .menu-controls button:hover::before {
 /* Theme Toggle Button */
 header .toggle-theme {
 	appearance: button;
-	background-color: transparent;
+	background-color: var(--primary);
 	border: 2px solid var(--primary);
 	border-radius: 1000vw;
-	color: var(--foreground);
+	color: var(--primary-foreground);
 	font-family: "Inter", sans-serif;
 	font-size: 16px;
 	font-weight: 500;
@@ -616,10 +620,10 @@ html.dark .theme-dark-icon {
 header .toggle-menu {
 	align-items: center;
 	appearance: button;
-	background-color: transparent;
+	background-color: var(--primary);
 	border: 2px solid var(--primary);
 	border-radius: 1000vw;
-	color: var(--foreground);
+	color: var(--primary-foreground);
 	display: flex;
 	font-family: "Inter", sans-serif;
 	font-size: 16px;
@@ -637,7 +641,7 @@ header .toggle-menu {
 }
 
 header .toggle-menu:hover {
-	transform: scale(1.1);
+	transform: scale(1.125);
 }
 
 /* Menu Burger Icon */
@@ -654,7 +658,7 @@ header .toggle-menu .menu-burger {
 }
 
 header .toggle-menu .menu-burger span {
-	background-color: var(--primary);
+	background-color: var(--primary-foreground);
 	backface-visibility: hidden;
 	-webkit-backface-visibility: hidden;
 	display: block;
@@ -2563,7 +2567,7 @@ body:has(.modal-overlay.active) {
 	0% {
 		transform: translateY(0);
 	}
-	50% {
+	28%, 100% {
 		transform: translateY(-10px);
 	}
 	100% {
@@ -2664,6 +2668,38 @@ body:has(.modal-overlay.active) {
 	}
 	20%, 40%, 60%, 80% {
 		transform: translateX(2px);
+	}
+}
+
+@keyframes shake2 {
+	/* 0% to ~85.7% (3 seconds of a 3.5s loop) nothing happens */
+	0%, 85.7% { 
+		transform: translate3d(0, 0, 0); 
+	}
+	/* The actual shake animation keyframes happen in the last ~14.3% */
+	85.8%, 89% {
+		transform: translate3d(-2px, 0, 0);
+	}
+	87.4%, 90.6% {
+		transform: translate3d(2px, 0, 0);
+	}
+	89%, 92.2% {
+		transform: translate3d(-4px, 0, 0);
+	}
+	90.6%, 93.8% {
+		transform: translate3d(4px, 0, 0);
+	}
+	92.2%, 95.4% {
+		transform: translate3d(-4px, 0, 0);
+	}
+	93.8%, 97% {
+		transform: translate3d(4px, 0, 0);
+	}
+	95.4%, 98.6% {
+		transform: translate3d(-2px, 0, 0);
+	}
+	97%, 100% {
+		transform: translate3d(2px, 0, 0);
 	}
 }
 
