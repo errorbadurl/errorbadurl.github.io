@@ -2571,10 +2571,3 @@ body:has(.modal-overlay.active) {
 		transform: translateX(2px);
 	}
 }
-
-.g-recaptcha {
-	left: 0;
-	position: absolute;
-	top: 0;
-	z-index: 9999;
-}

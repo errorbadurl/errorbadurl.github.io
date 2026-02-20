@@ -234,6 +234,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 			root.classList.remove('dark');
 			localStorage.setItem('theme', 'light');
 		}
+		renderRecaptcha(theme);
 	}
 
 	if (btnToggleTheme) {
@@ -566,4 +567,29 @@ function themeToggle() {
 	const toggleBtn = document.querySelector('.toggle-theme');
 	if (toggleBtn) toggleBtn.click();
 	return next;
+}
+
+let recaptchaId = null;
+
+function renderRecaptcha(theme) {
+	const container = document.getElementById('recaptcha_element_container');
+	container.innerHTML = '<div id="recaptcha_element"></div>';   // remove iframe
+
+	// If already rendered, remove safely
+	if (recaptchaId !== null) {
+		if (grecaptcha) {
+			grecaptcha.reset(recaptchaId);
+		}
+		recaptchaId = null;
+	}
+
+	if (typeof theme !== "undefined") {
+		const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+	}
+
+	const element = document.getElementById('recaptcha_element');
+	recaptchaId = grecaptcha.render(element, {
+		sitekey: '6LdB6XEsAAAAALxFULYAHD-C2V4rhSWLmyfgUenZ',
+		theme: theme
+	});
 }
