@@ -3,7 +3,7 @@
 AOS.init({
 	duration: 1000,
 	// once: true,
-	anchorPlacement: 'top-bottom',
+	anchorPlacement: 'center-bottom',
 });
 
 // // Portfolio data is now loaded from assets/data/portfolio.json
@@ -26,68 +26,100 @@ AOS.init({
 // }
 
 const works = [
-    {
+	{
 		"id": 1,
-		"title": "Analytics Dashboard",
-		"description": "Real-time data visualization platform",
-		"longDescription": "A comprehensive analytics dashboard that provides real-time insights into business metrics. Features interactive charts, customizable widgets, and advanced filtering capabilities. Built with performance in mind to handle large datasets efficiently.",
-		"image": "https://images.unsplash.com/photo-1665470909939-959569b20021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWIlMjBhcHBsaWNhdGlvbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NzAzNDg1NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["React", "TypeScript", "D3.js", "TailwindCSS"],
-		"category": "Web Application",
-		"liveUrl": "#",
-		"githubUrl": "#"
+		"title": "Barossa",
+		"subtitle": "",
+		"description": "Australia’s premier wine tourism destination platform",
+		"longDescription": "Led end-to-end development of a high-traffic tourism website using WordPress and Elementor. Translated high-fidelity Figma designs into pixel-perfect, responsive pages. Built custom Elementor widgets and plugins to integrate dynamic tourism data (ATDW API) and enable scalable content management. Optimized performance, SEO, and cross-browser reliability for long-term stability.",
+		"image": "assets/img/portfolio/web-barossa.jpg",
+		"client": "Barossa",
+		"date": "Nov 2024",
+		"technologies": ["PHP", "WordPress", "Elementor", "JavaScript", "MySQL", "Figma", "ATDW API", "SEO"],
+		"category": "Enterprise WordPress Development",
+		"liveUrl": "https://www.barossa.com/",
+		"githubUrl": "",
 	},
 	{
 		"id": 2,
-		"title": "E-Commerce Platform",
-		"description": "Modern online shopping experience",
-		"longDescription": "A full-featured e-commerce platform with seamless shopping cart, secure checkout, and inventory management. Includes admin panel for product management, order tracking, and customer analytics.",
-		"image": "https://images.unsplash.com/photo-1615623705641-db34ad498cc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxlLWNvbW1lcmNlJTIwd2Vic2l0ZSUyMGRlc2lnbnxlbnwxfHx8fDE3NzAyOTEwMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
-		"category": "E-Commerce",
-		"liveUrl": "#"
+		"title": "ViewRetreats",
+		"subtitle": "",
+		"description": "Luxury wellness retreat booking and content platform",
+		"longDescription": "Contributed to the migration and modernization of a large-scale travel platform to OctoberCMS. Rebuilt legacy booking components, migrated user data, and optimized database queries for performance. Integrated Expedia API services to enhance booking functionality. Following the platform’s pivot from a transactional booking system to a content-driven travel publication, delivered UI/UX improvements, reusable components, and architectural enhancements to support the new direction.",
+		"image": ["assets/img/portfolio/web-viewretreats-laravel.jpg", "assets/img/portfolio/web-viewretreats-wp.jpg"],
+		"client": "ViewRetreats",
+		"date": "Jan 2021",
+		"technologies": ["PHP", "OctoberCMS", "WordPress", "Elementor", "JavaScript", "jQuery", "MySQL", "Expedia API", "Bootstrap", "Figma"],
+		"category": "Travel Platform",
+		"liveUrl": "https://www.viewretreats.com/",
+		"githubUrl": "",
 	},
 	{
 		"id": 3,
-		"title": "Mobile Fitness App",
-		"description": "Track workouts and nutrition",
-		"longDescription": "A mobile-first fitness tracking application that helps users monitor their workouts, nutrition, and progress. Features include custom workout plans, meal logging, and progress visualization with charts and graphs.",
-		"image": "https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzcwMzQxNzY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["React Native", "Firebase", "Redux", "Chart.js"],
-		"category": "Mobile App",
-		"githubUrl": "#"
+		"title": "Punchmark",
+		"description": "Market-leading SaaS platform for jewelry retailers",
+		"longDescription": "Maintained and enhanced a high-volume SaaS platform serving jewelry businesses. Implemented front-end and back-end feature improvements using PHP and JavaScript. Optimized MySQL queries for performance and scalability. Assisted in UI enhancements, debugging, and production-level support within a structured development environment.",
+		"image": "assets/img/portfolio/web-punchmark.jpg",
+		"client": "Punchmark",
+		"date": "Apr 2018",
+		"technologies": ["PHP", "JavaScript", "jQuery", "MySQL", "Bootstrap"],
+		"category": "SaaS Platform / E-Commerce",
+		"liveUrl": "https://www.punchmark.com/",
+		"githubUrl": "",
 	},
 	{
 		"id": 4,
-		"title": "Analytics Dashboard",
-		"description": "Real-time data visualization platform",
-		"longDescription": "A comprehensive analytics dashboard that provides real-time insights into business metrics. Features interactive charts, customizable widgets, and advanced filtering capabilities. Built with performance in mind to handle large datasets efficiently.",
-		"image": "https://images.unsplash.com/photo-1665470909939-959569b20021?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB3ZWIlMjBhcHBsaWNhdGlvbiUyMGRhc2hib2FyZHxlbnwxfHx8fDE3NzAzNDg1NTJ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["React", "TypeScript", "D3.js", "TailwindCSS"],
-		"category": "Web Application",
-		"liveUrl": "#",
-		"githubUrl": "#"
+		"title": "Flavor Producers",
+		// "subtitle": "(Lorimer Innovations)",
+		"description": "Back-end system modernization and performance optimization",
+		"longDescription": "Modernized legacy web application components by refactoring outdated UI and backend structures. Improved database query efficiency and optimized data presentation layers. Conducted QA testing and systematic debugging to enhance system stability and responsiveness.",
+		"image": "assets/img/portfolio/web-flavorworks.jpg",
+		"client": "Lorimer Innovations Llc",
+		"date": "Feb 2017",
+		"technologies": ["PHP", "JavaScript", "MySQL", "Bootstrap", "DataTables"],
+		"category": "Web Application Modernization",
+		"liveUrl": "",
+		"githubUrl": "",
 	},
 	{
 		"id": 5,
-		"title": "E-Commerce Platform",
-		"description": "Modern online shopping experience",
-		"longDescription": "A full-featured e-commerce platform with seamless shopping cart, secure checkout, and inventory management. Includes admin panel for product management, order tracking, and customer analytics.",
-		"image": "https://images.unsplash.com/photo-1615623705641-db34ad498cc5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxlLWNvbW1lcmNlJTIwd2Vic2l0ZSUyMGRlc2lnbnxlbnwxfHx8fDE3NzAyOTEwMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["Next.js", "Stripe", "PostgreSQL", "Prisma"],
-		"category": "E-Commerce",
-		"liveUrl": "#"
+		"title": "Promotional Wristbands",
+		"description": "Custom Laravel-based e-commerce platform",
+		"longDescription": "Collaborated with another developer to build a full-featured e-commerce platform using Laravel. Designed database architecture, implemented authentication logic, and integrated payment gateways including PayPal and Authorize.Net. Developed secure checkout workflows and optimized transactional processes for scalability and reliability.",
+		"image": "assets/img/portfolio/web-promotionalwristbands.jpg",
+		"client": "Promotional Wristbands",
+		"date": "Jul 2016",
+		"technologies": ["Laravel", "PHP", "MySQL", "JavaScript", "jQuery", "Bootstrap", "PayPal API", "Authorize.Net"],
+		"category": "Custom E-Commerce Development",
+		"liveUrl": "https://www.promotionalwristband.com/",
+		"githubUrl": "",
 	},
-	{
+    {
 		"id": 6,
-		"title": "Mobile Fitness App",
-		"description": "Track workouts and nutrition",
-		"longDescription": "A mobile-first fitness tracking application that helps users monitor their workouts, nutrition, and progress. Features include custom workout plans, meal logging, and progress visualization with charts and graphs.",
-		"image": "https://images.unsplash.com/photo-1605108222700-0d605d9ebafe?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHxtb2JpbGUlMjBhcHAlMjBpbnRlcmZhY2V8ZW58MXx8fHwxNzcwMzQxNzY1fDA&ixlib=rb-4.1.0&q=80&w=1080",
-		"technologies": ["React Native", "Firebase", "Redux", "Chart.js"],
-		"category": "Mobile App",
-		"githubUrl": "#"
-	}
+		"title": "NativeAdBuzz",
+		"description": "Enterprise advertising platform redevelopment",
+		"longDescription": "Collaborated in a team-driven redevelopment of a large-scale advertising platform using Laravel. Rebuilt core administrative dashboards, user authentication systems, and payment integrations. Refactored legacy logic, improved code structure, and enhanced system performance across both front-end and back-end layers.",
+		"image": "assets/img/portfolio/web-nativeadbuzz.jpg",
+		"client": "Futuristech Inc.",
+		"date": "Jul 2015",
+		"technologies": ["Laravel", "PHP", "MySQL", "JavaScript", "jQuery", "Bootstrap", "REST APIs"],
+		"category": "Advertising Platform / Full-Stack Development",
+		"liveUrl": "https://www.nativeadbuzz.com/",
+		"githubUrl": "",
+	},
+    {
+		"id": 7,
+		"title": "Design-to-Code Engineering",
+		"description": "Transforming modern design systems into pixel-perfect, responsive web interfaces",
+		"longDescription": "Converted high-fidelity design mockups (Figma, PSD, and other design tools) into responsive, production-ready front-end implementations. Focused on pixel accuracy, accessibility standards, cross-browser compatibility, and performance optimization. Collaborated with designers and stakeholders to translate visual concepts into scalable UI components while maintaining clean, maintainable code architecture.",
+		"image": "assets/img/portfolio/web-dasm.jpg",
+		"client": "",
+		"date": "Since 2013",
+		"technologies": ["HTML5", "CSS3", "JavaScript", "Bootstrap", "Responsive Design", "Cross-Browser Testing"],
+		"category": "Front-End Engineering / UI Implementation",
+		"liveUrl": "",
+		"githubUrl": "",
+	},
 ];
 
 const projects = [
@@ -155,9 +187,25 @@ const projects = [
 	}
 ];
 
-
 // On page load set the theme and render grids.
 document.addEventListener('DOMContentLoaded', async function() {
+
+	// // Resume download button (footer)
+	// const btnResume = document.querySelectorAll('.link-resume');
+	// if (btnResume) {
+	// 	btnResume.forEach(btn => {
+	// 		if (btn) {
+	// 			btn.addEventListener('click', function() {
+	// 				// For browsers that support download attribute, this is enough.
+	// 				// For others, force download via JS fallback
+	// 				if (!this.hasAttribute('download')) {
+	// 					e.preventDefault();
+	// 					window.open(this.getAttribute('href'), '_blank');
+	// 				}
+	// 			});
+	// 		}
+	// 	});
+	// }
 
 	// // Load portfolio data first
 	// await loadPortfolioData();
@@ -170,7 +218,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 	if (header) {
 		header.classList.toggle("scrolled", window.scrollY > 0);
-		window.addEventListener("scroll", () => {
+		window.addEventListener("scroll", function() {
 			header.classList.toggle("scrolled", window.scrollY > 0);
 		});
 	}
@@ -188,17 +236,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 		}
 	}
 
-	// // Initialize theme from localStorage (default: light)
-	// try {
-	// 	const stored = localStorage.getItem('theme') || 'light';
-	// 	applyTheme(stored);
-	// } catch (e) {
-	// 	// localStorage may be unavailable; default to light
-	// 	applyTheme('light');
-	// }
-
 	if (btnToggleTheme) {
-		btnToggleTheme.addEventListener('click', () => {
+		btnToggleTheme.addEventListener('click', function() {
 			const next = root.classList.contains('dark') ? 'light' : 'dark';
 			applyTheme(next);
 		});
@@ -206,9 +245,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 	// Menu toggle setup
 	const btnToggleMenu = document.querySelector('.toggle-menu');
-
 	if (btnToggleMenu) {
-		btnToggleMenu.addEventListener('click', () => {
+		btnToggleMenu.addEventListener('click', function() {
 			const menuStatus = body.classList.contains('menu-opened');
 			if (menuStatus) {
 				body.classList.remove('menu-opened');
@@ -220,9 +258,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 	// Close menu button
 	const btnCloseMenu = document.querySelector('.close-menu');
-
 	if (btnCloseMenu) {
-		btnCloseMenu.addEventListener('click', () => {
+		btnCloseMenu.addEventListener('click', function() {
 			const menuStatus = body.classList.contains('menu-opened');
 			if (menuStatus) {
 				body.classList.remove('menu-opened');
@@ -232,12 +269,25 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 	// Close menu if overlay is clicked
 	const overlayContainer = document.querySelector('.overlay');
-
 	if (overlayContainer) {
-		overlayContainer.addEventListener('click', () => {
+		overlayContainer.addEventListener('click', function() {
 			const menuStatus = body.classList.contains('menu-opened');
 			if (menuStatus) {
 				body.classList.remove('menu-opened');
+			}
+		});
+	}
+
+	const btnNav = document.querySelectorAll('.nav-menu .nav .nav-btn');
+	if (btnNav) {
+		btnNav.forEach(btn => {
+			if (btn) {
+				btn.addEventListener('click', function() {
+					const menuStatus = body.classList.contains('menu-opened');
+					if (menuStatus) {
+						body.classList.remove('menu-opened');
+					}
+				});
 			}
 		});
 	}
@@ -257,19 +307,28 @@ document.addEventListener('DOMContentLoaded', async function() {
 		const container = document.querySelector("#works .grid") || document.querySelector("#works");
 		if (container && works.length > 0) {
 			const html = works.map((item, index) => {
-				let delay = 200 * index;
+				const subtitle = (item.subtitle) ? ` <small>${escapeHTML(item.subtitle)}</small>` : '';
+				let image = "";
+				let imageClass = ["grid-img-container"];
+				if (typeof item.image === "object") {
+					image = item.image.map((img, idx) => `<img class="grid-img ${(idx === 0) ? "active" : ""}" src="${escapeHTML(img)}" alt="${escapeHTML(item.title)}">`).join('');
+					imageClass.push("img-slider");
+				} else {
+					image = (item.image) ? `<img class="grid-img" src="${escapeHTML(item.image)}" alt="${escapeHTML(item.title)}">` : '';
+				}
+
 				return `
-				<div class="grid-item" data-id="${escapeHTML(item.id)}" data-src="works" data-aos="fade-up" data-aos-delay="${delay}" data-aos-anchor-placement="top-bottom">
+				<div class="grid-item" data-id="${escapeHTML(item.id)}" data-src="works" data-aos="fade-up">
 					<div class="grid-content">
 						<div class="grid-item-img">
-							<img src="${escapeHTML(item.image)}" alt="${escapeHTML(item.title)}">
+							<div class="${imageClass.join(' ')}">${image}</div>
 							<div class="grid-item-overlay">
 								<span>View Details</span>
 							</div>
 						</div>
 						<div class="grid-item-text">
 							<div class="grid-item-text-sub">${escapeHTML(item.category || '')}</div>
-							<h3 class="grid-item-text-title">${escapeHTML(item.title)}</h3>
+							<h3 class="grid-item-text-title">${escapeHTML(item.title)}${subtitle}</h3>
 							<p class="grid-item-text-desc">${escapeHTML(item.description)}</p>
 						</div>
 					</div>
@@ -284,17 +343,24 @@ document.addEventListener('DOMContentLoaded', async function() {
 		const container = document.querySelector("#projects .grid") || document.querySelector("#projects");
 		if (container && projects.length > 0) {
 			const html = projects.map((item, index) => {
+				const subtitle = (item.subtitle) ? ` <small>${escapeHTML(item.subtitle)}</small>` : '';
 				const pills = (item.technologies || []).slice(0, 3).map(tech => `<span class="pill">${escapeHTML(tech)}</span>`).join('');
-				let delay = 200 * index;
+				let image = "";
+				if (typeof item.image === "object") {
+					image = item.image.map(img => `<img class="grid-item-img" src="${escapeHTML(img)}" alt="${escapeHTML(item.title)}">`).join('');
+				} else {
+					image = (item.image) ? `<img class="grid-item-img" src="${escapeHTML(item.image)}" alt="${escapeHTML(item.title)}">` : '';
+				}
+
 				return `
-				<div class="grid-item" data-id="${escapeHTML(item.id)}" data-src="projects" data-aos="fade-up" data-aos-delay="${delay}" data-aos-anchor-placement="top-bottom">
+				<div class="grid-item" data-id="${escapeHTML(item.id)}" data-src="projects" data-aos="fade-up">
 					<div class="grid-content">
-						<img class="grid-item-img" src="${escapeHTML(item.image)}" alt="${escapeHTML(item.title)}">
+						<div class="grid-img-container">${image}</div>
 						<div class="grid-item-overlay"></div>
 						<div class="grid-item-text">
 							<div>
 								<div class="grid-item-sub">${escapeHTML(item.category || '')}</div>
-								<h3 class="grid-item-title">${escapeHTML(item.title)}</h3>
+								<h3 class="grid-item-title">${escapeHTML(item.title)}${subtitle}</h3>
 								<p class="grid-item-desc">${escapeHTML(item.description)}</p>
 								<div class="grid-item-pills">${pills}</div>
 							</div>
@@ -377,40 +443,38 @@ document.addEventListener('DOMContentLoaded', async function() {
 
 		let linksHtml = '';
 		if (liveUrl) {
-			linksHtml += `<a href="${liveUrl}" target="_blank" rel="noopener noreferrer" class="modal-link btn-live">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<path d="M15 3h6v6"></path>
-					<path d="M10 14 21 3"></path>
-					<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
-				</svg>
-				View Live
-			</a>`;
+			linksHtml += `<a href="${liveUrl}" target="_blank" rel="noopener noreferrer" class="btn-live"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"></path><path d="M10 14 21 3"></path><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path></svg>Live</a>`;
 		}
 		if (githubUrl) {
-			linksHtml += `<a href="${githubUrl}" target="_blank" rel="noopener noreferrer" class="modal-link btn-github">
-				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-					<path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path>
-					<path d="M9 18c-4.51 2-5-2-7-2"></path>
-				</svg>
-				Source Code
-			</a>`;
+			linksHtml += `<a href="${githubUrl}" target="_blank" rel="noopener noreferrer" class="btn-github"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>Source</a>`;
+		}
+
+		const date = (data.date) ? ` &bull; ${escapeHTML(data.date)}` : '';
+
+		let image = "";
+		let imageClass = ["modal-img-container"];
+		if (typeof data.image === "object") {
+			image = data.image.map((img, idx) => `<img ${(idx === 0) ? 'class="active"' : ""} src="${escapeHTML(img)}" alt="${escapeHTML(data.title)}${(idx+1)}">`).join('');
+			imageClass.push("img-slider");
+		} else {
+			image = (data.image) ? `<img src="${escapeHTML(data.image)}" alt="${escapeHTML(data.title)}">` : '';
 		}
 
 		const html = `
 			<div class="modal-img">
-				<img src="${escapeHTML(data.image)}" alt="${escapeHTML(data.title)}">
+				<div class="${imageClass.join(' ')}">${image}</div>
 				<div class="modal-img-overlay"></div>
+				<div class="modal-link">
+					${linksHtml}
+				</div>
 			</div>
 			<div class="modal-text">
 				<h2 class="modal-text-title">${escapeHTML(data.title)}</h2>
-				<p class="modal-text-sub">${escapeHTML(data.category || '')}</p>
+				<p class="modal-text-sub">${escapeHTML(data.category || '')}${date}</p>
 				<p class="modal-text-desc">${escapeHTML(data.longDescription)}</p>
 				<div class="modal-technologies">
 					<h3>Technologies Used</h3>
 					<div class="modal-technology-list">${pills}</div>
-				</div>
-				<div class="modal-link">
-					${linksHtml}
 				</div>
 			</div>`;
 
@@ -439,7 +503,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 		try {
 			const response = await emailjs.sendForm(
 				"service_qkgpjvj",
-				"template_4yer42b",
+				"template_3ipidn5",
 				form
 			);
 
@@ -458,6 +522,40 @@ document.addEventListener('DOMContentLoaded', async function() {
 			btn.removeAttribute('disabled', '');
 		}
 	});
+
+	const inLinks = document.querySelectorAll('.inlink');
+	if (inLinks) {
+		inLinks.forEach(link => {
+			if (link) {
+				link.addEventListener('click', function(e) {
+					e.preventDefault();
+					
+  					const id = link.getAttribute('href');
+					const target = document.querySelector(id);
+					
+					if (target) {
+						target.scrollIntoView({ block: 'start' });
+						history.replaceState(null, '', window.location.pathname + window.location.search);
+					}
+				});
+			}
+		});
+	}
+
+	// const slider = document.querySelector('.img-slider');
+	// const slides = slider.querySelectorAll('img');
+
+	// if (slides.length > 1) {
+	// 	let current = 0;
+
+	// 	setInterval(() => {
+	// 		slides[current].classList.remove('active');
+
+	// 		current = (current + 1) % slides.length;
+
+	// 		slides[current].classList.add('active');
+	// 	}, 10000); // change every 4s
+	// }
 });
 
 /* legacy API: keep compatibility if something calls themeToggle() */
