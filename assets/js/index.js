@@ -6,25 +6,6 @@ AOS.init({
 	anchorPlacement: 'center-bottom',
 });
 
-// // Portfolio data is now loaded from assets/data/portfolio.json
-// let works = [];
-// let projects = [];
-
-// // Fetch portfolio data from JSON file
-// async function loadPortfolioData() {
-// 	try {
-// 		const response = await fetch('./assets/data/portfolio.json');
-// 		if (!response.ok) throw new Error('Failed to load portfolio data');
-// 		const data = await response.json();
-// 		works = data.works || [];
-// 		projects = data.projects || [];
-// 		return data;
-// 	} catch (error) {
-// 		console.error('Error loading portfolio data:', error);
-// 		return null;
-// 	}
-// }
-
 const works = [
 	{
 		"id": 1,
@@ -190,32 +171,11 @@ const projects = [
 // On page load set the theme and render grids.
 document.addEventListener('DOMContentLoaded', async function() {
 
-	// // Resume download button (footer)
-	// const btnResume = document.querySelectorAll('.link-resume');
-	// if (btnResume) {
-	// 	btnResume.forEach(btn => {
-	// 		if (btn) {
-	// 			btn.addEventListener('click', function() {
-	// 				// For browsers that support download attribute, this is enough.
-	// 				// For others, force download via JS fallback
-	// 				if (!this.hasAttribute('download')) {
-	// 					e.preventDefault();
-	// 					window.open(this.getAttribute('href'), '_blank');
-	// 				}
-	// 			});
-	// 		}
-	// 	});
-	// }
-
-	// // Load portfolio data first
-	// await loadPortfolioData();
-
 	const root = document.documentElement;
 	const body = document.querySelector("body");
 
-	// Header scroll event listener.
+	// Event: Header scroll event listener.
 	const header = document.querySelector("header");
-
 	if (header) {
 		header.classList.toggle("scrolled", window.scrollY > 0);
 		window.addEventListener("scroll", function() {
@@ -226,6 +186,10 @@ document.addEventListener('DOMContentLoaded', async function() {
 	// Theme toggle setup
 	const btnToggleTheme = document.querySelector('.toggle-theme');
 
+	/**
+	 * Applies the specified theme to the document and stores it in localStorage.
+	 * @param {string} theme - The theme to apply ('dark' or 'light')
+	 */
 	function applyTheme(theme) {
 		if (theme === 'dark') {
 			root.classList.add('dark');
@@ -237,6 +201,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 		renderRecaptcha(theme);
 	}
 
+	// Event: Theme toggle button click - switches between light and dark themes
 	if (btnToggleTheme) {
 		btnToggleTheme.addEventListener('click', function() {
 			const next = root.classList.contains('dark') ? 'light' : 'dark';
@@ -244,7 +209,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 		});
 	}
 
-	// Menu toggle setup
+	// Event: Menu toggle button click - opens or closes the navigation menu
 	const btnToggleMenu = document.querySelector('.toggle-menu');
 	if (btnToggleMenu) {
 		btnToggleMenu.addEventListener('click', function() {
@@ -257,7 +222,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 		});
 	}
 
-	// Close menu button
+	// Event: Close menu button click - closes the navigation menu
 	const btnCloseMenu = document.querySelector('.close-menu');
 	if (btnCloseMenu) {
 		btnCloseMenu.addEventListener('click', function() {
@@ -268,7 +233,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 		});
 	}
 
-	// Close menu if overlay is clicked
+	// Event: Overlay click - closes the menu when clicking the overlay background
 	const overlayContainer = document.querySelector('.overlay');
 	if (overlayContainer) {
 		overlayContainer.addEventListener('click', function() {
@@ -279,6 +244,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 		});
 	}
 
+	// Event: Navigation button clicks - closes menu when a nav link is clicked
 	const btnNav = document.querySelectorAll('.nav-menu .nav .nav-btn');
 	if (btnNav) {
 		btnNav.forEach(btn => {
@@ -293,7 +259,11 @@ document.addEventListener('DOMContentLoaded', async function() {
 		});
 	}
 
-	// Utility function to safely escape HTML to prevent XSS
+	/**
+	 * Safely escapes HTML special characters to prevent XSS attacks.
+	 * @param {string} str - The string to escape
+	 * @returns {string} The escaped HTML string
+	 */
 	function escapeHTML(str) {
 		return String(str || '')
 			.replace(/&/g, '&amp;')
@@ -303,7 +273,10 @@ document.addEventListener('DOMContentLoaded', async function() {
 			.replace(/'/g, '&#39;');
 	}
 
-	// Render works grid items using insertAdjacentHTML for fast insertion
+	/**
+	 * Renders the works/portfolio grid items from the works data array.
+	 * Uses insertAdjacentHTML for efficient DOM manipulation.
+	 */
 	function renderWorksGrid() {
 		const container = document.querySelector("#works .grid") || document.querySelector("#works");
 		if (container && works.length > 0) {
@@ -339,7 +312,10 @@ document.addEventListener('DOMContentLoaded', async function() {
 		}
 	}
 
-	// Render projects grid items using insertAdjacentHTML for fast insertion
+	/**
+	 * Renders the projects grid items from the projects data array.
+	 * Uses insertAdjacentHTML for efficient DOM manipulation.
+	 */
 	function renderProjectsGrid() {
 		const container = document.querySelector("#projects .grid") || document.querySelector("#projects");
 		if (container && projects.length > 0) {
@@ -382,6 +358,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 	renderWorksGrid();
 	renderProjectsGrid();
 
+	// Event: Works grid click - opens a modal with details about the selected work
 	const eventWorksModal = document.querySelector('#works .grid');
 	if (eventWorksModal) {
 		eventWorksModal.addEventListener('click', function(e) {
@@ -392,6 +369,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 		});
 	}
 
+	// Event: Projects grid click - opens a modal with details about the selected project
 	const eventProjectsModal = document.querySelector('#projects .grid');
 	if (eventProjectsModal) {
 		eventProjectsModal.addEventListener('click', function(e) {
@@ -402,6 +380,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 		});
 	}
 
+	// Event: Modal close button click - closes the currently open modal
 	const eventCloseModal = document.querySelector('#modal-overlay .modal-close');
 	if (eventCloseModal) {
 		eventCloseModal.addEventListener('click', function(e) {
@@ -410,6 +389,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 	}
 
 	// Add event listener to close modal when clicking only the overlay (not modal content)
+	// Event: Modal overlay click - closes the modal when clicking the overlay background
 	const modalOverlay = document.querySelector('.modal-overlay');
 	if (modalOverlay) {
 		modalOverlay.addEventListener('click', function (e) {
@@ -419,6 +399,11 @@ document.addEventListener('DOMContentLoaded', async function() {
 		});
 	}
 
+	/**
+	 * Renders a modal window with detailed information about a work or project.
+	 * @param {string} type - The type of content ('works' or 'projects')
+	 * @param {string|number} id - The unique identifier of the item to display
+	 */
 	function renderModal(type, id) {
 		const modalOverlay = document.getElementById('modal-overlay');
 
@@ -486,44 +471,23 @@ document.addEventListener('DOMContentLoaded', async function() {
 		modalOverlay.classList.add('active');
 	}
 
+	/**
+	 * Closes and removes the active modal from view.
+	 */
 	function destroyModal() {
 		const modalOverlay = document.getElementById('modal-overlay');
 
 		modalOverlay.classList.remove('active');
 	}
 
+	// Event: Contact form submit - triggers reCAPTCHA validation before sending
 	const form = document.getElementById("contact-form");
-	form.addEventListener("submit", async (e) => {
+	form.addEventListener("submit", function(e) {
 		e.preventDefault();
-
-		const btn = form.querySelector('.btn-contact[type="submit"]');
-		btn.setAttribute('disabled', '');
-
-		emailjs.init("MaNOgTpsGcwSxAqNR");
-
-		try {
-			const response = await emailjs.sendForm(
-				"service_qkgpjvj",
-				"template_3ipidn5",
-				form
-			);
-
-			// status.textContent = "Message sent successfully!";
-			form.reset();
-
-			if (grecaptcha) {
-				grecaptcha.reset();
-			}
-
-			btn.removeAttribute('disabled', '');
-		} catch (err) {
-			// status.textContent = "Failed to send message, please try later.";
-			// console.error("EmailJS Error:", err);
-
-			btn.removeAttribute('disabled', '');
-		}
+		grecaptcha.execute(reCaptchaId);
 	});
 
+	// Event: In-page link clicks - smooth scroll to targets and update URL
 	const inLinks = document.querySelectorAll('.inlink');
 	if (inLinks) {
 		inLinks.forEach(link => {
@@ -542,24 +506,12 @@ document.addEventListener('DOMContentLoaded', async function() {
 			}
 		});
 	}
-
-	// const slider = document.querySelector('.img-slider');
-	// const slides = slider.querySelectorAll('img');
-
-	// if (slides.length > 1) {
-	// 	let current = 0;
-
-	// 	setInterval(() => {
-	// 		slides[current].classList.remove('active');
-
-	// 		current = (current + 1) % slides.length;
-
-	// 		slides[current].classList.add('active');
-	// 	}, 10000); // change every 4s
-	// }
 });
 
-/* legacy API: keep compatibility if something calls themeToggle() */
+/**
+ * Legacy API: Toggles the theme between light and dark mode.
+ * Kept for backward compatibility.
+ */
 function themeToggle() {
 	const root = document.documentElement;
 	const next = root.classList.contains('dark') ? 'light' : 'dark';
@@ -569,27 +521,106 @@ function themeToggle() {
 	return next;
 }
 
-let recaptchaId = null;
+// Store the reCAPTCHA widget ID
+let reCaptchaId = null;
 
+/**
+ * Renders or re-renders the reCAPTCHA widget with the specified theme.
+ * @param {string} theme - The theme for reCAPTCHA ('light' or 'dark'). Auto-detects if undefined.
+ */
 function renderRecaptcha(theme) {
 	const container = document.getElementById('recaptcha_element_container');
 	container.innerHTML = '<div id="recaptcha_element"></div>';   // remove iframe
 
 	// If already rendered, remove safely
-	if (recaptchaId !== null) {
+	if (reCaptchaId !== null) {
 		if (grecaptcha) {
-			grecaptcha.reset(recaptchaId);
+			grecaptcha.reset(reCaptchaId);
 		}
-		recaptchaId = null;
+		reCaptchaId = null;
 	}
 
-	if (typeof theme !== "undefined") {
-		const theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+	if (typeof theme === "undefined") {
+		theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
 	}
 
 	const element = document.getElementById('recaptcha_element');
-	recaptchaId = grecaptcha.render(element, {
-		sitekey: '6LdB6XEsAAAAALxFULYAHD-C2V4rhSWLmyfgUenZ',
-		theme: theme
+	reCaptchaId = grecaptcha.render(element, {
+		sitekey: '6Ley0XEsAAAAAGBEohy3nRKMJgdUI3ylbmuUpvzQ',
+    	size: 'invisible',
+		theme: theme,
+    	callback: onSubmitContactForm,
 	});
+}
+
+/**
+ * Handles the contact form submission after successful reCAPTCHA validation.
+ * Sends the form data via EmailJS service.
+ * @param {string} token - The reCAPTCHA response token
+ */
+async function onSubmitContactForm(token) {
+	const form = document.getElementById("contact-form");
+	const btn = form.querySelector('.btn-contact[data-action="submit"]');
+	btn.setAttribute('disabled', '');
+
+	emailjs.init("MaNOgTpsGcwSxAqNR");
+
+	const timeNow = new Date();
+	const data = {
+		from_name: form.from_name.value,
+		reply_to: form.reply_to.value,
+		message: form.message.value,
+		'g-recaptcha-response': token,
+		'time': timeNow.toLocaleString(),
+	};
+
+	try {
+		const response = await emailjs.send(
+			"service_qkgpjvj",
+			"template_3ipidn5",
+			data,
+		);
+
+		showToast("Message sent successfully!", "success");
+		form.reset();
+
+		if (grecaptcha) {
+			grecaptcha.reset(reCaptchaId);
+		}
+
+		btn.removeAttribute('disabled', '');
+	} catch (err) {
+		showToast("Failed to send message", "error");
+		console.error("EmailJS Error:", err);
+
+		btn.removeAttribute('disabled', '');
+	}
+}
+
+/**
+ * Displays a toast notification message with optional type and duration.
+ * @param {string} message - The message to display in the toast
+ * @param {string} type - The toast type ('success', 'error', etc.). Default is 'success'.
+ * @param {number} duration - The duration in milliseconds to show the toast. Default is 3000ms.
+ */
+function showToast(message, type = "success", duration = 3000) {
+	let container = document.querySelector(".toast-container");
+
+	if (!container) {
+		container = document.createElement("div");
+		container.className = "toast-container";
+		document.body.appendChild(container);
+	}
+
+	const toast = document.createElement("div");
+	toast.className = `toast ${type}`;
+	toast.textContent = message;
+	container.appendChild(toast);
+
+	setTimeout(() => toast.classList.add("show"), 50);
+
+	setTimeout(() => {
+		toast.classList.remove("show");
+		setTimeout(() => toast.remove(), 300);
+	}, duration);
 }

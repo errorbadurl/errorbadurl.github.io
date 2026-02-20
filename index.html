@@ -297,6 +297,7 @@
 					</div>
 					<div>
 						<form id="contact-form" class="contact-form">
+							<div id="recaptcha_element_container"></div>
 							<div class="contact-form-content" data-aos="fade-left" data-aos-anchor-placement="top-bottom">
 								<div>
 									<label for="name" class="contact-form-label">Your Name</label>
@@ -310,7 +311,6 @@
 									<label for="message" class="contact-form-label">Your Message</label>
 									<textarea id="message" name="message" required="" rows="6" class="contact-form-textarea" placeholder="Tell me about your project ideas..."></textarea>
 								</div>
-								<div id="recaptcha_element_container"></div>
 								<button type="submit" class="btn-contact" data-action='submit' tabindex="0">
 									<div class="btn-contact-default"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send w-5 h-5"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path><path d="m21.854 2.147-10.94 10.939"></path></svg>Send</div>
 									<div class="btn-contact-sending"><div class="loading-icon"></div>Sending...</div>
@@ -367,6 +367,9 @@
 			<div class="modal-content"></div>
 		</div>
 	</div>
+
+	<!-- Toast Container -->
+	<div class="toast-container"></div>
 
 	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 	<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
