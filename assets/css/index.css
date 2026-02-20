@@ -238,6 +238,10 @@
 	margin: 0;
 	padding: 0;
 	font-family: "Inter", sans-serif;
+	-webkit-tap-highlight-color: transparent;
+	-moz-tap-highlight-color: transparent; /* Firefox for Android */
+	-o-tap-highlight-color: transparent; /* Opera Mobile */
+	tap-highlight-color: transparent; /* Standard property, but not widely supported yet */
 }
 
 /* HTML Root */
@@ -303,8 +307,7 @@ input, textarea {
 	border-color: var(--primary);
 }
 
-input:focus,
-textarea:focus {
+input:focus, select:focus, textarea:focus, button:focus, a:focus {
 	outline: none;
 }
 
@@ -526,7 +529,7 @@ header .menu-controls {
 	flex-direction: row;
 	font-family: "Inter", sans-serif;
 	font-size: 16px;
-	gap: 16px;
+	gap: 10px;
 	line-height: 24px;
 	margin: 0;
 	padding: 0;
@@ -646,7 +649,9 @@ header .toggle-menu {
 }
 
 header .toggle-menu:hover {
-	transform: scale(1.125);
+	/* transform: scale(1.125); */
+	animation: button-pop 0.15s ease forwards;
+	transform: scale(1.05);
 }
 
 /* Menu Burger Icon */
@@ -1058,10 +1063,11 @@ aside .nav-menu .nav-bottom {
 	justify-content: center;
 }
 
-.btn-container button,
-.btn-container .btn {
+.btn-container .btn,
+.btn-container button {
 	border-radius: 1000vw;
 	padding: 15px 30px;
+	text-align: center;
 }
 
 @media (width < 40rem) {
@@ -1069,12 +1075,12 @@ aside .nav-menu .nav-bottom {
 		/* flex-direction: column; */
 		width: calc(100% + calc(var(--spacing) * 18));
 	}
-	
-	.btn-container button,
-	.btn-container .btn {
+
+	.btn-container .btn,
+	.btn-container button {
 		padding: 13px 20px;
 	}
-	
+
 	#home .container p {
 		margin-bottom: 30px;
 	}
