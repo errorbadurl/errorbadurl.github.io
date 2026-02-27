@@ -341,7 +341,7 @@ main {
 
 section {
 	background-color: var(--background);
-	min-height: 100vh;
+	min-height: 100svh;
 	padding: 5rem 0;
 	padding-block: calc(var(--spacing) * 24);
 	padding-inline: calc(var(--spacing) * 6);
@@ -975,7 +975,7 @@ aside .nav-menu ul.nav-icons .link-resume {
 
 /* Navigation Bottom */
 aside .nav-menu .nav-bottom {
-	animation: shake10 10.5s infinite;
+	animation: shake-loop 10.5s infinite;
 	position: absolute;
 	bottom: calc(var(--spacing) * 16);
 	left: calc(var(--spacing) * 16);
@@ -1250,12 +1250,12 @@ section .section-br {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 30px 20px 20px;
+	padding: 0 20px;
 }
 
 #home .container h3 {
 	color: var(--muted-foreground);
-	font-size: 0.8rem;
+	font-size: 1rem;
 	letter-spacing: 0.1em;
 	line-height: 24px;
 	margin-bottom: 16px;
@@ -1312,7 +1312,7 @@ section .section-br {
 	}
 
 	#home .container h3 {
-		font-size: 1rem;
+		font-size: .8rem;
 	}
 
 	#home .container p {
@@ -1337,6 +1337,7 @@ section .section-br {
 
 /* Background Image with Fade Effects */
 #about .about-bg .about-bg-img {
+	background-attachment: fixed;
 	background-image: url('../img/about.jpg');
 	background-position: right center;
 	background-repeat: no-repeat;
@@ -1616,7 +1617,7 @@ section .section-br {
 
 /* Image Slider */
 .img-slider {
-	height: 300px;
+	height: 100%;
 	overflow: hidden;
 	position: relative;
 	width: 100%;
@@ -1624,17 +1625,35 @@ section .section-br {
 }
 
 .img-slider img {
+	-webkit-animation: slider-fade 10s infinite;
+	animation: slider-fade 10s infinite;
 	height: 100%;
 	inset: 0;
+	left: 0;
 	object-fit: cover;
+	object-position: top center;
 	opacity: 0;
 	position: absolute;
+	top: 0;
 	width: 100%;
 }
 
-.img-slider img.active {
-	opacity: 1;
-	z-index: 1;
+.img-slider img:nth-of-type(1) {
+    opacity: 1;
+    animation-delay: 0s;
+}
+
+.img-slider img:nth-of-type(2) {
+    opacity: 1;
+    animation-delay: 5s;
+}
+
+@keyframes slider-fade {
+    0%   { opacity: 1; }
+    40%  { opacity: 1; }
+    50%  { opacity: 0; }
+    90%  { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 /* Works Image Overlay */
@@ -1926,6 +1945,13 @@ section .section-br {
 	border: 1px solid var(--border);
 	border-radius: var(--radius-2xl);
 	padding: calc(var(--spacing) * 6);
+	transform: translateX(0);
+	transition: all var(--default-transition-duration) var(--default-transition-timing-function);
+}
+
+#contact .hours:hover {
+	border-color: var(--primary);
+	transform: translateX(5px);
 }
 
 #contact .hours h4 {
@@ -2250,6 +2276,7 @@ body:has(.modal-overlay.active) {
 	border: 1px solid var(--border);
 	border-radius: var(--radius-3xl);
 	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+	height: 100%;
 	max-height: 90vh;
 	max-width: var(--container-4xl);
 	opacity: 0;
@@ -2597,7 +2624,7 @@ body:has(.modal-overlay.active) {
 }
 
 /* Fade & Slide Animations */
-@keyframes fadeSlideUp {
+@keyframes fade-slide-up {
 	0% {
 		opacity: 0;
 		transform: translateY(100%);
@@ -2608,7 +2635,7 @@ body:has(.modal-overlay.active) {
 	}
 }
 
-@keyframes fadeSlideDown {
+@keyframes fade-slide-down {
 	0% {
 		opacity: 0;
 		transform: translateY(-100%);
@@ -2619,7 +2646,7 @@ body:has(.modal-overlay.active) {
 	}
 }
 
-@keyframes fadeSlideLeft {
+@keyframes fade-slide-left {
 	0% {
 		opacity: 0;
 		transform: translateX(-100%);
@@ -2630,7 +2657,7 @@ body:has(.modal-overlay.active) {
 	}
 }
 
-@keyframes fadeSlideRight {
+@keyframes fade-slide-right {
 	0% {
 		opacity: 0;
 		transform: translateX(100%);
@@ -2642,7 +2669,7 @@ body:has(.modal-overlay.active) {
 }
 
 /* Zoom Animations */
-@keyframes zoomDefault {
+@keyframes zoom-default {
 	0% {
 		transform: scale(1.1);
 	}
@@ -2651,7 +2678,7 @@ body:has(.modal-overlay.active) {
 	}
 }
 
-@keyframes zoomHover {
+@keyframes zoom-hover {
 	0% {
 		transform: scale(1);
 	}
@@ -2661,7 +2688,7 @@ body:has(.modal-overlay.active) {
 }
 
 /* Fade Loop Animation */
-@keyframes fadeLoop {
+@keyframes fade-loop {
 	0% {
 		opacity: 0;
 	}
@@ -2692,7 +2719,7 @@ body:has(.modal-overlay.active) {
 	}
 }
 
-@keyframes shake10 {
+@keyframes shake-loop {
 	/* The shake effect occurs within the first ~4.76% of the animation cycle (0.5s / 10.5s) */
 	0%, 4.76% {
 		transform: translateX(0);

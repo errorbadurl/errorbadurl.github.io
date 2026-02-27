@@ -222,7 +222,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 				let image = "";
 				let imageClass = ["grid-img-container"];
 				if (typeof item.image === "object") {
-					image = item.image.map((img, idx) => `<img class="grid-img ${(idx === 0) ? "active" : ""}" src="${escapeHTML(img)}" alt="${escapeHTML(item.title)}">`).join('');
+					image = item.image.map((img, idx) => `<img class="grid-img" src="${escapeHTML(img)}" alt="${escapeHTML(item.title)}">`).join('');
 					imageClass.push("img-slider");
 				} else {
 					image = (item.image) ? `<img class="grid-img" src="${escapeHTML(item.image)}" alt="${escapeHTML(item.title)}">` : '';
@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 			}).join('');
 			container.insertAdjacentHTML('beforeend', html);
 		} else if (container && works.length <= 0) {
-			container.insertAdjacentHTML('beforeend', `<h1 class="upcoming-items" data-aos="fade-up">!!!UNDER CONSTRUCTION!!!<br/>Entries are coming soon.</h1>`);
+			container.insertAdjacentHTML('beforeend', `<div data-aos="fade-up"><h1 class="upcoming-items">!!!UNDER CONSTRUCTION!!!<br/>Entries are coming soon.</h1></div>`);
 		}
 	}
 
@@ -389,7 +389,7 @@ document.addEventListener('DOMContentLoaded', async function() {
 		let image = "";
 		let imageClass = ["modal-img-container"];
 		if (typeof data.image === "object") {
-			image = data.image.map((img, idx) => `<img ${(idx === 0) ? 'class="active"' : ""} src="${escapeHTML(img)}" alt="${escapeHTML(data.title)}${(idx+1)}">`).join('');
+			image = data.image.map((img, idx) => `<img src="${escapeHTML(img)}" alt="${escapeHTML(data.title)}${(idx+1)}">`).join('');
 			imageClass.push("img-slider");
 		} else {
 			image = (data.image) ? `<img src="${escapeHTML(data.image)}" alt="${escapeHTML(data.title)}">` : '';
