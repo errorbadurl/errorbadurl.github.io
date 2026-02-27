@@ -1550,8 +1550,9 @@ section .section-br {
 
 @media (width < 40rem) {
 	#about .about-bg .about-bg-img {
-		background-attachment: scroll;
+		/* background-attachment: scroll; */
 		background-position: 90% center;
+		background-size: 200% 100%;
 	}
 
 	#about .more {
