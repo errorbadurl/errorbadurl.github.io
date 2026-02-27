@@ -341,7 +341,7 @@ main {
 
 section {
 	background-color: var(--background);
-	min-height: 100svh;
+	min-height: 100vh;
 	padding: 5rem 0;
 	padding-block: calc(var(--spacing) * 24);
 	padding-inline: calc(var(--spacing) * 6);
@@ -1227,6 +1227,7 @@ section .section-br {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	min-height: 100svh;
 }
 
 /* Home Background Grid */
@@ -1548,6 +1549,11 @@ section .section-br {
 }
 
 @media (width < 40rem) {
+	#about .about-bg .about-bg-img {
+		background-attachment: scroll;
+		background-position: 90% center;
+	}
+
 	#about .more {
 		padding: calc(var(--spacing) * 8);
 	}
@@ -2276,7 +2282,6 @@ body:has(.modal-overlay.active) {
 	border: 1px solid var(--border);
 	border-radius: var(--radius-3xl);
 	box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-	height: 100%;
 	max-height: 90vh;
 	max-width: var(--container-4xl);
 	opacity: 0;
@@ -2334,7 +2339,7 @@ body:has(.modal-overlay.active) {
 .modal-img {
 	border-top-left-radius: var(--radius-3xl);
 	border-top-right-radius: var(--radius-3xl);
-	height: calc(var(--spacing) * 96);
+	height: calc(var(--spacing) * 95);
 	overflow: hidden;
 	position: relative;
 }
@@ -2467,6 +2472,7 @@ body:has(.modal-overlay.active) {
 	.modal-img {
 		border-top-left-radius: var(--radius-2xl);
 		border-top-right-radius: var(--radius-2xl);
+		height: calc(var(--spacing) * 85);
 	}
 
 	.modal-link {
@@ -2485,6 +2491,10 @@ body:has(.modal-overlay.active) {
 	.modal-text-sub {
 		font-size: var(--text-base);
 		line-height: var(--text-base--line-height);
+	}
+
+	.modal-text-desc {
+		font-size: .95rem;
 	}
 }
 
