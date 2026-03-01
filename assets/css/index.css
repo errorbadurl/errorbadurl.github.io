@@ -1717,6 +1717,11 @@ section .section-br {
 	text-align: start;
 }
 
+@media (width < 40rem) {
+	#works .grid-item-img {
+		height: calc(var(--spacing) * 54);
+	}
+}
 /* ===========================
    PROJECTS SECTION
    =========================== */
@@ -2472,7 +2477,7 @@ body:has(.modal-overlay.active) {
 	.modal-img {
 		border-top-left-radius: var(--radius-2xl);
 		border-top-right-radius: var(--radius-2xl);
-		height: calc(var(--spacing) * 85);
+		height: calc(var(--spacing) * 70);
 	}
 
 	.modal-link {
@@ -2629,89 +2634,6 @@ body:has(.modal-overlay.active) {
 	}
 }
 
-/* Fade & Slide Animations */
-@keyframes fade-slide-up {
-	0% {
-		opacity: 0;
-		transform: translateY(100%);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes fade-slide-down {
-	0% {
-		opacity: 0;
-		transform: translateY(-100%);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes fade-slide-left {
-	0% {
-		opacity: 0;
-		transform: translateX(-100%);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-@keyframes fade-slide-right {
-	0% {
-		opacity: 0;
-		transform: translateX(100%);
-	}
-	100% {
-		opacity: 1;
-		transform: translateY(0);
-	}
-}
-
-/* Zoom Animations */
-@keyframes zoom-default {
-	0% {
-		transform: scale(1.1);
-	}
-	100% {
-		transform: scale(1);
-	}
-}
-
-@keyframes zoom-hover {
-	0% {
-		transform: scale(1);
-	}
-	100% {
-		transform: scale(1.1);
-	}
-}
-
-/* Fade Loop Animation */
-@keyframes fade-loop {
-	0% {
-		opacity: 0;
-	}
-	5% {
-		opacity: 1;
-	}
-	30% {
-		opacity: 1;
-	}
-	35% {
-		opacity: 0;
-	}
-	100% {
-		opacity: 0;
-	}
-}
-
 /* Shake Animation */
 @keyframes shake {
 	0%, 100% {
@@ -2782,6 +2704,7 @@ body:has(.modal-overlay.active) {
    RECAPTCHA STYLES
    =========================== */
 .grecaptcha-badge {
+	visibility: hidden !important; 
 	z-index: 99999;
 }
 

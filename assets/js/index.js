@@ -135,7 +135,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 			root.classList.remove('dark');
 			localStorage.setItem('theme', 'light');
 		}
-		renderRecaptcha(theme);
+		// renderRecaptcha(theme);
+		renderRecaptcha();
 	}
 
 	// Event: Theme toggle button click - switches between light and dark themes
@@ -477,7 +478,8 @@ let reCaptchaId = null;
  * Renders or re-renders the reCAPTCHA widget with the specified theme.
  * @param {string} theme - The theme for reCAPTCHA ('light' or 'dark'). Auto-detects if undefined.
  */
-function renderRecaptcha(theme) {
+// function renderRecaptcha(theme) {
+function renderRecaptcha() {
 	const container = document.getElementById('recaptcha_element_container');
 	container.innerHTML = '<div id="recaptcha_element"></div>';   // remove iframe
 
@@ -489,16 +491,16 @@ function renderRecaptcha(theme) {
 		reCaptchaId = null;
 	}
 
-	if (typeof theme === "undefined") {
-		theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
-	}
+	// if (typeof theme === "undefined") {
+	// 	theme = document.documentElement.classList.contains('dark') ? 'dark' : 'light';
+	// }
 
 	const element = document.getElementById('recaptcha_element');
 	reCaptchaId = grecaptcha.render(element, {
 		sitekey: '6Ley0XEsAAAAAGBEohy3nRKMJgdUI3ylbmuUpvzQ',
     	size: 'invisible',
 		badge: 'bottomleft',
-		theme: theme,
+		// theme: theme,
     	callback: onSubmitContactForm,
 	});
 }
