@@ -2413,7 +2413,7 @@ body:has(.modal-overlay.active) {
 
 /* Modal Text Content */
 .modal-text {
-	padding: 0 calc(var(--spacing) * 8) calc(var(--spacing) * 8);
+	padding: calc(var(--spacing) * 4) calc(var(--spacing) * 8) calc(var(--spacing) * 8);
 }
 
 .modal-text-title {
@@ -2494,7 +2494,7 @@ body:has(.modal-overlay.active) {
 	}
 
 	.modal-text {
-		padding: 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);
+		padding: calc(var(--spacing) * 3) calc(var(--spacing) * 6) calc(var(--spacing) * 6);
 	}
 
 	.modal-text-title {
