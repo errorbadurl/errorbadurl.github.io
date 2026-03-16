@@ -261,6 +261,7 @@ body {
 	min-height: 100vh;
     max-width: 100vw;
     overflow-x: hidden;
+	width: 100%;
 }
 
 /* ===========================
@@ -384,6 +385,12 @@ section {
 
 .grid-3 > .grid-item:nth-child(3n+3) {
 	transition-delay: 400ms;
+}
+
+@media screen and (width > 1700px) {
+	section {
+		min-height: unset;
+	}
 }
 
 @media (width < 64rem) {
@@ -2346,7 +2353,7 @@ body:has(.modal-overlay.active) {
 .modal-img {
 	border-top-left-radius: var(--radius-3xl);
 	border-top-right-radius: var(--radius-3xl);
-	height: calc(var(--spacing) * 95);
+	height: calc(var(--spacing) * 105);
 	overflow: hidden;
 	position: relative;
 }
@@ -2406,7 +2413,7 @@ body:has(.modal-overlay.active) {
 
 /* Modal Text Content */
 .modal-text {
-	padding: calc(var(--spacing) * 8);
+	padding: 0 calc(var(--spacing) * 8) calc(var(--spacing) * 8);
 }
 
 .modal-text-title {
@@ -2479,7 +2486,7 @@ body:has(.modal-overlay.active) {
 	.modal-img {
 		border-top-left-radius: var(--radius-2xl);
 		border-top-right-radius: var(--radius-2xl);
-		height: calc(var(--spacing) * 70);
+		height: calc(var(--spacing) * 80);
 	}
 
 	.modal-link {
@@ -2487,7 +2494,7 @@ body:has(.modal-overlay.active) {
 	}
 
 	.modal-text {
-		padding: calc(var(--spacing) * 6);
+		padding: 0 calc(var(--spacing) * 6) calc(var(--spacing) * 6);
 	}
 
 	.modal-text-title {
